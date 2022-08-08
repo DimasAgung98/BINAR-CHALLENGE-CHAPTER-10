@@ -1,0 +1,199 @@
+body {
+    background-color: #212529 !important;
+}
+
+.bg {
+    background-color: #ECE8E1;
+}
+
+.form-container {
+    margin: 100px auto;
+    width: 1000px;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.2);
+    position: relative;
+    border-radius: 10px;
+    height: 600px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.close-btn {
+    position: absolute;
+    top: 2%;
+    right: 3%;
+    font-size: 1.5rem;
+    z-index: 1;
+    color: #fff;
+    cursor: pointer;
+}
+
+.icon-socials {
+    font-size: 30px;
+    list-style: none;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.form-content-left {
+    border-radius: 10px 0 0 10px;
+    position: relative;
+}
+
+.form-content-right {
+    border-radius: 0 10px 10px 0;
+    position: relative;
+    background: linear-gradient(90deg, rgb(40, 40, 40) 0%, rgb(17, 17, 17) 100%);
+    -webkit-border-radius: 0 10px 10px 0;
+    -moz-border-radius: 0 10px 10px 0;
+    -ms-border-radius: 0 10px 10px 0;
+    -o-border-radius: 0 10px 10px 0;
+}
+
+.radius {
+    border-radius: 0 10px 10px 0 !important;
+    -webkit-border-radius: 0 10px 10px 0 !important;
+    -moz-border-radius: 0 10px 10px 0 !important;
+    -ms-border-radius: 0 10px 10px 0 !important;
+    -o-border-radius: 0 10px 10px 0 !important;
+}
+
+.form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form h1 {
+    font-size: 1.5rem;
+    text-align: start;
+    width: 80%;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.form-inputs {
+    margin-bottom: 1rem;
+    width: 80%;
+}
+
+.form-inputs p {
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    color: #f00e0e;
+}
+
+.form-label {
+    display: inline-block;
+    font-size: 1rem;
+    margin-bottom: 6px;
+    color: #fff;
+}
+
+.form-input {
+    display: block;
+    padding-left: 10px;
+    outline: none;
+    border-radius: 2px;
+    height: 40px;
+    width: 100%;
+    border: none;
+}
+
+.form-input::placeholder {
+    color: #595959;
+    font-size: 12px;
+}
+
+.form-input-btn {
+    width: 80%;
+    height: 50px;
+    margin-top: 10px;
+    border-radius: 2px;
+    background: linear-gradient(90deg,
+            rgb(220, 53, 69) 0%,
+            rgb(241, 58, 89) 100%);
+    outline: none;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.form-input-btn:hover {
+    cursor: pointer;
+    background: linear-gradient(90deg,
+            rgb(255, 165, 0) 0%,
+            rgb(207, 238, 69) 100%);
+    transition: all 0.4s ease-out;
+}
+
+.form-input-login {
+    font-size: 0.8rem;
+    margin-top: 10px;
+    color: #fff;
+    width: 80%;
+    text-align: center;
+}
+
+.form-input-login a {
+    text-decoration: none;
+    color: orange;
+    font-weight: 600;
+}
+
+.forgot {
+    opacity: 0.7;
+    font-size: 0.8rem;
+    text-decoration: none;
+    text-align: end;
+    margin-top: 0.3rem;
+}
+
+.forgot-title {
+    color: white !important;
+}
+
+.forgot:hover {
+    color: orange;
+    opacity: 1;
+}
+
+.instagram2 {
+    color: #F12950;
+}
+
+.instagram2 :hover {
+    color: #F12950;
+}
+
+.facebook2 {
+    color: #1877f2;
+}
+
+.facebook2 :hover {
+    color: #1877f2;
+}
+
+.twitter2 {
+    color: #00acee;
+}
+
+.twitter2 :hover {
+    color: #00acee;
+}
+
+.tiktok2 {
+    color: #000000
+}
+
+.tiktok2:hover {
+    color: #000000
+}

@@ -1,0 +1,84 @@
+/* FONT STYLING */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Poppins:wght@300;600&family=Ubuntu:wght@400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #212529;
+    height: auto;
+    width: 100vw;
+    font-family: 'Josefin Sans', sans-serif;
+    padding-top: 20px;
+    color: white;
+}
+
+.logo-footer {
+    width: 100px;
+    height: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
+}
+
+.logo-area {
+    color: white;
+    flex-direction: column !important;
+    text-align: center !important;
+    align-self: center;
+
+}
+
+.footer-text-area {
+    text-align: end;
+    align-self: center;
+}
+
+.socials {
+    list-style: none;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 3rem 0;
+}
+
+.socials li {
+    margin: 30px;
+}
+
+.socials a {
+    color: white;
+    font-size: 2rem;
+}
+
+.tik:hover {
+    color: #F12950;
+}
+
+.ig:hover {
+    color: #EBB510;
+}
+
+.yt:hover {
+    color: #cd201f;
+}
+
+.fb:hover {
+    color: #1877f2;
+}
+
+.footer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

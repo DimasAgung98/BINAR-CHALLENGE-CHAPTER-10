@@ -1,0 +1,10 @@
+.hero-desc {
+    font-family: 'Josefin Sans', sans-serif;
+    padding-left: 3em;
+    align-self: center;
+    font-size: 18px;
+}
+
+.box-shadow {
+    box-shadow: 10px 10px #212529D9;
+}

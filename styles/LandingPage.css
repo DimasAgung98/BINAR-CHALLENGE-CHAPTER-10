@@ -1,0 +1,169 @@
+/* FONT STYLING */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Josefin+Sans&family=Poppins:wght@300;600&family=Ubuntu:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Josefin+Sans&family=Poppins:wght@300;600&family=Sarala&family=Ubuntu:wght@400;500;700&display=swap');
+
+* {
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+/* AGAR KONTENT TIDAK TERTUTUP NAVBAR */
+body {
+    padding-top: 100px;
+}
+
+.resp-video {
+    width: 150%;
+    /* max-width: min-content; */
+    height: auto;
+}
+
+.back-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.ptb {
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+.ptb2 {
+    padding-bottom: 120px;
+}
+
+.main-section {
+    padding-top: 250px;
+    padding-bottom: 250px;
+    margin: 0;
+
+}
+
+.title-text {
+    text-align: center;
+}
+
+.title-text h1 {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 9rem;
+    letter-spacing: 1px;
+    margin-bottom: 0;
+    color: white;
+}
+
+.title-text span {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 9rem;
+    letter-spacing: 1px;
+    margin-bottom: 0;
+    color: white;
+}
+
+.title-text p {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 28px;
+    margin-bottom: 3rem;
+    color: rgb(207, 206, 206);
+}
+
+.button-reg {
+    width: 200px;
+    height: 70px;
+}
+
+.text-card {
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.text-end {
+    align-self: center;
+}
+
+.text-start {
+    align-self: center;
+}
+
+.line {
+    width: 5px;
+    background-color: black;
+    height: 200px;
+
+}
+
+.card-body {
+    height: 250px;
+}
+
+.card-icon {
+    font-size: 4rem;
+    color: #DC3545;
+}
+
+.card-title {
+    font-family: 'Ubuntu', sans-serif;
+    padding-top: 10px !important;
+}
+
+.card-desc {
+    font-family: 'Ubuntu', sans-serif;
+    padding-top: 10px !important;
+    color: rgb(102, 100, 100);
+}
+
+.card {
+    background-color: rgb(238, 238, 238);
+    border: 0 !important;
+    height: 25vh;
+}
+
+.card :hover {
+    background-color: rgb(238, 238, 238);
+}
+
+.our-text h1 {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+}
+
+.our-text p {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 20px;
+    color: rgb(207, 206, 206);
+}
+
+.btn-list {
+    width: 50rem !important;
+    border-radius: 20px !important;
+    -webkit-border-radius: 20px !important;
+    -moz-border-radius: 20px !important;
+    -ms-border-radius: 20px !important;
+    -o-border-radius: 20px !important;
+}
+
+.testi {
+    color: orange;
+}
+
+.card-picture-profile {
+    height: 150px;
+}
+
+.name-testi {
+    color: #DC3545;
+    text-align: center;
+    font-weight: 700;
+}
+
+.img-area {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border: 5px solid #DC3545;
+}

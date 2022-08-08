@@ -1,0 +1,58 @@
+.img-content {
+    width: auto;
+    height: 20rem;
+}
+
+.img-game {
+    text-align: center;
+}
+
+.game-text {
+    align-self: center;
+}
+
+.text-game-title {
+    font-weight: 700;
+    color: #df4759;
+}
+
+.card-custom {
+    background-color: #939494;
+    color: white;
+    text-align: center;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.card-size {
+    height: 10rem;
+}
+
+.card-custom:hover {
+    background-color: #292b2c !important;
+}
+
+.card-custom:hover h5 {
+    background-color: #292b2c
+}
+
+.card-custom:hover p {
+    background-color: #292b2c
+}
+
+#icon-achievement:hover {
+    background-color: #292b2c
+}
+
+.btn-all-game {
+    background-color: #df4759 !important;
+    border-color: white !important;
+}
+
+.btn-all-game:hover {
+    background-color: #292b2c !important;
+}
+
+#top-players {
+    color: orange !important;
+}

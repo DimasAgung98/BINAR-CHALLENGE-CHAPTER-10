@@ -1,0 +1,18 @@
+.title-faq h1 {
+    color: #df4759;
+    font-weight: 900;
+}
+
+.faq-page {
+    min-height: 70vh !important;
+}
+
+.accordion-button:not(.collapsed) {
+    color: white !important;
+    background: #292b2c !important;
+}
+
+.accordion-button:not(.collapsed)::after {
+    filter: brightness(0%) invert(100%);
+    -webkit-filter: brightness(0%) invert(100%);
+}

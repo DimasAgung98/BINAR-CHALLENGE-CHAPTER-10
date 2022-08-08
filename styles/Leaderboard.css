@@ -1,0 +1,19 @@
+.pb {
+    padding-bottom: 24rem;
+}
+
+.btn-leader {
+    width: 10rem;
+}
+
+.text th {
+    font-weight: 400;
+}
+
+.text-players {
+    color: #df4759;
+}
+
+.leaderboard-page {
+    min-height: 70vh !important;
+}

@@ -1,0 +1,79 @@
+.profile-pict {
+    width: 250px;
+    height: auto;
+    clip-path: circle();
+}
+
+.btn-change-profile {
+    width: 15rem !important;
+}
+
+.pp-section {
+    text-align: center;
+    vertical-align: middle;
+    justify-content: center;
+    justify-items: center;
+    justify-self: center;
+    align-items: center;
+}
+
+.card-size-profile {
+    height: 18rem;
+}
+
+.profile-socials {
+    list-style: none;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 3rem 0;
+}
+
+.profile-socials li {
+    margin: 15px;
+}
+
+.profile-socials a {
+    font-size: 1.5rem;
+}
+
+.instagram {
+    color: #F12950;
+}
+
+.instagram:hover {
+    color: #F12950;
+    font-size: 2rem;
+}
+
+.facebook {
+    color: #1877f2;
+}
+
+.facebook:hover {
+    color: #1877f2;
+    font-size: 2rem;
+}
+
+.twitter {
+    color: #00acee;
+}
+
+.twitter:hover {
+    color: #00acee;
+    font-size: 2rem;
+}
+
+.tiktok {
+    color: #000000
+}
+
+.tiktok:hover {
+    color: #000000;
+    font-size: 2rem;
+}
+
+.form-sizing {
+    height: 150px;
+}
