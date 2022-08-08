@@ -1,12 +1,6 @@
 /* FONT STYLING */
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Poppins:wght@300;600&family=Ubuntu:wght@400;500;700&display=swap');
 
-/* body {
-    margin: 0 !important;
-    float: right;
-    background-color: #212529 !important;
-} */
-
 .navbar {
     font-family: 'Josefin Sans', sans-serif;
     height: 10vh !important;
