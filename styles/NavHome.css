@@ -10,3 +10,7 @@
     color: orange !important;
     padding-bottom: 4px;
 }
+
+.pointer {
+    cursor: pointer;
+}

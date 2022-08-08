@@ -49,10 +49,10 @@ function Navhome() {
                         <div className='col-3'>
                             <div className='collapse navbar-collapse list-text justify-content-end' id='navbarSupportedContent'>
                                 <ul className="navbar-nav">
-                                    <li className="nav-item mx-3">
+                                    <li className="nav-item pointer mx-3">
                                         <div className="nav-link" onClick={openProfile}><a><FaUserAlt className='icon-profile' />PROFILE</a></div>
                                     </li>
-                                    <li className="nav-item mx-3">
+                                    <li className="nav-item pointer mx-3">
                                         <div className="nav-link" onClick={handleLogout}><a><FaSignOutAlt className='icon-logout' />LOGOUT</a></div>
                                     </li>
                                 </ul>
