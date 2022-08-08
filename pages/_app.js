@@ -13,6 +13,7 @@ import '../styles/RegisterForm.css';
 import '../styles/Forgot.css';
 import '../styles/Sidebar.css';
 import '../styles/NavHome.css';
+import '../styles/Content.css';
 //IMPORT BOOTSTRAP
 import 'bootstrap/dist/css/bootstrap.min.css';
 
