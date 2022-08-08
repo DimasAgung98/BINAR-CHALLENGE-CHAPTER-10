@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import Swal from 'sweetalert2';
 import Dot from '../../public/dota.jpg';
 import { Button } from 'reactstrap';
+import Head from 'next/head';
 //IMPORT COMPONENTS PAGES
 import Sidebar from '../../Components/HomePage/Sidebar';
 import Footer from '../../Components/Global/Footer';
@@ -30,6 +31,9 @@ const Dota = () => {
     // }, [])
     return (
         <>
+            <Head>
+                <title>DOTA 2 | TEAM ONE</title>
+            </Head>
             <Navhome />
             <Sidebar />
             <div className='container-fluid bg-white'>

@@ -34,7 +34,7 @@ function Navhome() {
                     <div className='container-fluid'>
                         <div className='col-3'>
                             {/* logo navbar */}
-                            <Link href='/' className='navbar-brand'><a className='decoration'>
+                            <Link href='/home' className='navbar-brand'><a className='decoration'>
                                 <div className='logo mb-2'>
                                     <Image src={NavbarLogo} alt="logo" />
                                 </div>

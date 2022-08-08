@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import Swal from 'sweetalert2';
 import Rps1 from '../../public/rps.png';
 import { Button } from 'reactstrap';
+import Head from 'next/head';
 //IMPORT COMPONENTS PAGES
 import Sidebar from '../../Components/HomePage/Sidebar';
 import Footer from '../../Components/Global/Footer';
@@ -30,6 +31,9 @@ function Rps() {
     // }, [])
     return (
         <>
+            <Head>
+                <title>ROCK PAPER SCISSORS | TEAM ONE</title>
+            </Head>
             <Navhome />
             <Sidebar />
             <div className='container-fluid bg-white'>
