@@ -19,7 +19,7 @@ function Faq(props) {
 
     return (
         <>
-            <div className='container-fluid bg-light faq-page mt-3'>
+            <div className='container-fluid bg-light faq-page'>
                 <div className='row'>
                     <div className='title-faq text-center py-5'>
                         <h1>FAQ</h1>

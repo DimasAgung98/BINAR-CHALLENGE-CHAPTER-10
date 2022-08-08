@@ -18,7 +18,7 @@ import apex from '../../public/apex.jpg';
 function Listgame() {
     return (
         <>
-            <div className='container-fluid bg-white pt-5 px-5 ptb mt-3'>
+            <div className='container-fluid bg-white pt-5 px-5 ptb'>
                 <div className='row px-5'>
                     <div className='col our-text'>
                         <h1>OUR GAMES</h1>
