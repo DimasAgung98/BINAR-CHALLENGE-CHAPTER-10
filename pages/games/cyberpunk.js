@@ -28,7 +28,7 @@ const Cyberpunk = () => {
             })
             router.push('/login')
         }
-    }, [])
+    }, [router])
     return (
         <>
             <Head>

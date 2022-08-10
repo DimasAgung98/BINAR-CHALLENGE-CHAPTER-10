@@ -9,23 +9,23 @@ import Sidebar from '../components/HomePage/Sidebar';
 import Footer from "../components/global/Footer";
 
 function HomePage() {
-    const router = useRouter()
-    useEffect(() => {
-        const isAuthenticated = localStorage.getItem('isAuthenticated');
-        window.scrollTo(0, 0)
+    // const router = useRouter()
+    // useEffect(() => {
+    //     const isAuthenticated = localStorage.getItem('isAuthenticated');
+    //     window.scrollTo(0, 0)
 
-        if (isAuthenticated) {
-            router.push('/home');
-        } else {
-            Swal.fire({
-                icon: 'info',
-                title: 'Notification',
-                text: 'Please Login First',
-                confirmButtonColor: '#dc3545',
-            })
-            router.push('/login')
-        }
-    }, [])
+    //     if (isAuthenticated) {
+    //         router.push('/home');
+    //     } else {
+    //         Swal.fire({
+    //             icon: 'info',
+    //             title: 'Notification',
+    //             text: 'Please Login First',
+    //             confirmButtonColor: '#dc3545',
+    //         })
+    //         router.push('/login')
+    //     }
+    // }, [])
 
     return (
         <>

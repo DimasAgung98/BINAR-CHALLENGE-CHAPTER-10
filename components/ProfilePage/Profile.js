@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Image from 'next/image';
+import FormData from 'form-data';
 //IMPORT COMPONENT
 import { Button } from 'reactstrap';
 import { Modal } from 'react-bootstrap';
@@ -15,7 +16,7 @@ function Profile() {
     const [show, setShow] = useState();
     const [picture, setShowPicture] = useState();
     const [image, setImage] = useState(dummy);
-    const [saveImage, setSaveImage] = useState(null);
+    const [saveImage, setSaveImage] = useState('');
     const [photo, setPhoto] = useState(null);
     const [preview, setPreview] = useState(defaultprofile);
     const handleModal = () => setShow(true);
@@ -63,8 +64,8 @@ function Profile() {
     }
 
     //MENAMBAHKAN DATA KE FORM
-    let formData = new FormData();
-    formData.append('photo', saveImage);
+    var form = new FormData();
+    form.append('photo', `${saveImage}`);
 
     function uploadedImage(e) {
         if (!saveImage) {
@@ -75,7 +76,7 @@ function Profile() {
                 confirmButtonColor: '#dc3545',
             })
         } else {
-            const result = axios.post('http://localhost:4000/upload', formData)
+            const result = axios.post('http://localhost:4000/upload', form)
             Swal.fire({
                 icon: 'success',
                 title: 'SUCCESS',
@@ -91,7 +92,7 @@ function Profile() {
                 <div className='row bg-light '>
                     <div className='col-3 pt-5 px-5'>
                         <div className='card pp-section bg-light'>
-                            <Image className='profile-pict' src={preview} alt="profile" />
+                            <Image className='profile-pict' src={preview} layout='fill' alt="profile" />
                         </div>
                         <div className='row pt-3 justify-content-center'>
                             <Button onClick={openModalPicture} className='btn-change-profile' color='danger'>Change Profile Picture</Button>
@@ -191,7 +192,7 @@ function Profile() {
                 <Modal.Body>
                     <div>
                         <div className='text-center'>
-                            <Image src={image} className='img-thumbnail' alt='profileimage' />
+                            <Image loader={() => `${image}`} className='img-thumbnail' alt='profileimage' />
                         </div>
                         <div className='pt-3'>
                             <label htmlFor='formFile' className='form-label text-black'>Upload Image Here</label>
