@@ -1,7 +1,7 @@
 .profile-pict {
     width: 250px;
     height: auto;
-    clip-path: circle();
+    clip-path: circle(6rem);
 }
 
 .btn-change-profile {
@@ -18,7 +18,7 @@
 }
 
 .card-size-profile {
-    height: 18rem;
+    height: 18rem !important;
 }
 
 .profile-socials {

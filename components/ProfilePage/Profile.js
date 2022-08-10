@@ -9,6 +9,7 @@ import Swal from 'sweetalert2';
 //IMPORT ICONS
 import { FaInstagram, FaTwitter, FaTiktok, FaFacebook } from 'react-icons/fa';
 import dummy from '../../public/uploaddummy.png';
+import defaultprofile from '../../public/profile-dummy.png';
 
 function Profile() {
     const [show, setShow] = useState();
@@ -16,7 +17,7 @@ function Profile() {
     const [image, setImage] = useState(dummy);
     const [saveImage, setSaveImage] = useState(null);
     const [photo, setPhoto] = useState(null);
-    const [preview, setPreview] = useState();
+    const [preview, setPreview] = useState(defaultprofile);
     const handleModal = () => setShow(true);
     const closeModal = () => setShow(false);
     const openModalPicture = () => setShowPicture(true);
@@ -43,7 +44,7 @@ function Profile() {
 
     useEffect(() => {
         if (!photo) {
-            setPreview(undefined)
+            setPreview(defaultprofile)
             return
         }
         const objectUrl = URL.createObjectURL(photo)
@@ -90,7 +91,7 @@ function Profile() {
                 <div className='row bg-light '>
                     <div className='col-3 pt-5 px-5'>
                         <div className='card pp-section bg-light'>
-                            <Image className='profile-pict mb-3' src={preview} alt="profile" />
+                            <Image className='profile-pict' src={preview} alt="profile" />
                         </div>
                         <div className='row pt-3 justify-content-center'>
                             <Button onClick={openModalPicture} className='btn-change-profile' color='danger'>Change Profile Picture</Button>
@@ -102,6 +103,9 @@ function Profile() {
                                 <li><a className='tiktok' href='https://www.tiktok.com/'><FaTiktok /></a></li>
                                 <li><a className='facebook' href='https://www.facebook.com/'><FaFacebook /></a></li>
                             </ul>
+                        </div>
+                        <div className='row'>
+
                         </div>
                     </div>
                     <div className='col-9 pt-5 px-5 bg-white'>
