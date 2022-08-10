@@ -13,22 +13,22 @@ import Navhome from '../../components/HomePage/Navhome';
 import Table from '../../components/leaderboard/Table';
 
 const Fallguys = () => {
-    // const router = useRouter()
-    // useEffect(() => {
-    //     const isAuthenticated = localStorage.getItem('isAuthenticated');
+    const router = useRouter()
+    useEffect(() => {
+        const isAuthenticated = localStorage.getItem('isAuthenticated');
 
-    //     if (isAuthenticated) {
-    //         router.push('/games/fall-guys');
-    //     } else {
-    //         Swal.fire({
-    //             icon: 'info',
-    //             title: 'Notification',
-    //             text: 'Please Login First',
-    //             confirmButtonColor: '#dc3545',
-    //         })
-    //         router.push('/login')
-    //     }
-    // }, [])
+        if (isAuthenticated) {
+            router.push('/games/fall-guys');
+        } else {
+            Swal.fire({
+                icon: 'info',
+                title: 'Notification',
+                text: 'Please Login First',
+                confirmButtonColor: '#dc3545',
+            })
+            router.push('/login')
+        }
+    }, [])
     return (
         <>
             <Head>
