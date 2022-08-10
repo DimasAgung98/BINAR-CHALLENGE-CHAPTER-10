@@ -8,7 +8,7 @@ import { Button } from 'reactstrap';
 import Head from 'next/head';
 //IMPORT COMPONENTS PAGES
 import Sidebar from '../../components/HomePage/Sidebar';
-import Footer from '../../components/Global/Footer';
+import Footer from '../../components/global/Footer';
 import Navhome from '../../components/HomePage/Navhome';
 import Table from '../../components/leaderboard/Table';
 
