@@ -1,5 +1,5 @@
 import React from 'react'
-import ListGame from '../ListGame/Listgame';
+import ListGame from '../../components/listGame/Listgame';
 
 const Home = () => {
     return (
