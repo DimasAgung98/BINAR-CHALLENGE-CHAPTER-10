@@ -1,10 +1,11 @@
+@import url('//fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
 html,
 body {
   padding: 0;
   margin: 0;
   margin: 0 !important;
   float: right;
-  /* font-family: 'Josefin Sans', sans-serif, 'Ubuntu', 'Bebas Neue', 'Poppins', 'Sarala'; */
 }
 
 a {
@@ -14,6 +15,7 @@ a {
 
 * {
   box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
