@@ -3,8 +3,8 @@ import { useRouter } from 'next/router';
 import Swal from 'sweetalert2';
 import Head from 'next/head';
 //IMPORT COMPONENTS
-import Navhome from '../Components/HomePage/Navhome';
-import ListGame from '../Components/ListGame/Listgame';
+import Navhome from '../components/HomePage/Navhome';
+import ListGame from '../components/listGame/Listgame';
 import Sidebar from '../components/HomePage/Sidebar';
 import Footer from "../components/global/Footer";
 

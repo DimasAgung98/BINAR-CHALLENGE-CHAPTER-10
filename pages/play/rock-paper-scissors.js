@@ -25,7 +25,7 @@ function RpsGame() {
             })
             router.push('/login')
         }
-    }, [])
+    }, [router])
     return (
         <><Head>
             <title>PLAY ROCK PAPER SCISSORS</title>
