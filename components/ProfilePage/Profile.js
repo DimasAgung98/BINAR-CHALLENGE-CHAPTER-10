@@ -92,7 +92,7 @@ function Profile() {
                 <div className='row bg-light '>
                     <div className='col-3 pt-5 px-5'>
                         <div className='card pp-section bg-light'>
-                            <Image className='profile-pict' src={preview} layout='fill' alt="profile" />
+                            <Image className='profile-pict' src={preview} alt="profile" />
                         </div>
                         <div className='row pt-3 justify-content-center'>
                             <Button onClick={openModalPicture} className='btn-change-profile' color='danger'>Change Profile Picture</Button>
