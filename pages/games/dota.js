@@ -28,7 +28,7 @@ const Dota = () => {
             })
             router.push('/login')
         }
-    }, [])
+    }, [router])
     return (
         <>
             <Head>

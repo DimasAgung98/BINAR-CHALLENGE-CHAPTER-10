@@ -28,7 +28,7 @@ const Valo = () => {
             })
             router.push('/login')
         }
-    }, [])
+    }, [router])
     return (
         <>
             <Head>

@@ -28,7 +28,7 @@ const Fallguys = () => {
             })
             router.push('/login')
         }
-    }, [])
+    }, [router])
     return (
         <>
             <Head>

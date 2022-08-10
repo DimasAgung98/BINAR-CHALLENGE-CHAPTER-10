@@ -28,7 +28,7 @@ const Watchdogs = () => {
             })
             router.push('/login')
         }
-    }, [])
+    }, [router])
     return (
         <>
             <Head>

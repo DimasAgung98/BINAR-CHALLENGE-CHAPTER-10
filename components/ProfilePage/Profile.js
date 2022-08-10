@@ -41,7 +41,7 @@ function Profile() {
     //                 setError(error);
     //             }
     //         )
-    // }, [])
+    // }, [router])
 
     useEffect(() => {
         if (!photo) {

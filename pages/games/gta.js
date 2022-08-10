@@ -28,7 +28,7 @@ const Gta = () => {
             })
             router.push('/login')
         }
-    }, [])
+    }, [router])
     return (
         <>
             <Head>

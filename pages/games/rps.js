@@ -28,7 +28,7 @@ function Rps() {
             })
             router.push('/login')
         }
-    }, [])
+    }, [router])
     return (
         <>
             <Head>
