@@ -32,7 +32,7 @@ const Cyberpunk = () => {
     return (
         <>
             <Head>
-                <title>HOME | TEAM ONE</title>
+                <title>CYBERPUNK | TEAM ONE</title>
             </Head>
             <Navhome />
             <Sidebar />
