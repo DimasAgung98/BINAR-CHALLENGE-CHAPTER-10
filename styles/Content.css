@@ -33,11 +33,13 @@
 }
 
 .card-custom:hover h5 {
-    background-color: #292b2c
+    background-color: #292b2c;
+    color: white;
 }
 
 .card-custom:hover p {
-    background-color: #292b2c
+    background-color: #292b2c;
+    color: white;
 }
 
 #icon-achievement:hover {

@@ -1,16 +1,16 @@
 /* FONT */
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans&display=swap");
 
-/* GLOBAL STYLING */
-body {
-    background-color: #E2E0DD !important;
-}
-
-header {
-    background-color: white;
-}
-
 /* MAIN SECTION */
+
+.back-button {
+    color: #dc3545;
+}
+
+.back-button:hover {
+    color: orange;
+}
+
 .player-title {
     font-family: sans-serif;
     text-align: center;
@@ -29,15 +29,17 @@ header {
     font-size: 2rem;
 }
 
-.figure {
+.area-rps {
     height: 10rem;
     text-align: center;
 }
 
-.figure input,
-.figure img {
-    height: 128px;
-    width: 128px;
+.figure {
+    text-align: center;
+}
+
+.player {
+    cursor: pointer;
 }
 
 .player:hover {
@@ -97,9 +99,18 @@ header {
     margin-bottom: 3rem;
 }
 
+.versus-position {
+    text-align: center !important;
+    justify-content: center !important;
+    align-items: center !important;
+    vertical-align: middle !important;
+    justify-content: center !important;
+}
+
 .reset-button {
-    max-width: 5rem;
+    max-width: 5rem !important;
     cursor: pointer;
+    text-align: center !important;
 }
 
 .reset-button:hover {

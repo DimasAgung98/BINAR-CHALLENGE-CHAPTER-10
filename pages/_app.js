@@ -14,7 +14,8 @@ import '../styles/Forgot.css';
 import '../styles/Sidebar.css';
 import '../styles/NavHome.css';
 import '../styles/Content.css';
-import '../styles/Profile.css'
+import '../styles/Profile.css';
+import '../styles/RpsGame.css';
 //IMPORT BOOTSTRAP
 import 'bootstrap/dist/css/bootstrap.min.css';
 
