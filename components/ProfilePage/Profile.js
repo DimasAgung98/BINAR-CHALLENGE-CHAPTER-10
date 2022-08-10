@@ -9,16 +9,16 @@ import ProfileAchievement from './ProfileAchievement';
 import Swal from 'sweetalert2';
 //IMPORT ICONS
 import { FaInstagram, FaTwitter, FaTiktok, FaFacebook } from 'react-icons/fa';
-import dummy from '../../public/uploaddummy.png';
-import defaultprofile from '../../public/profile-dummy.png';
+// import dummy from '../../public/uploaddummy.png';
+// import defaultprofile from '../../public/profile-dummy.png';
 
 function Profile() {
     const [show, setShow] = useState();
     const [picture, setShowPicture] = useState();
-    const [image, setImage] = useState(dummy);
+    const [image, setImage] = useState();
     const [saveImage, setSaveImage] = useState('');
     const [photo, setPhoto] = useState(null);
-    const [preview, setPreview] = useState(defaultprofile);
+    const [preview, setPreview] = useState();
     const handleModal = () => setShow(true);
     const closeModal = () => setShow(false);
     const openModalPicture = () => setShowPicture(true);
@@ -45,7 +45,7 @@ function Profile() {
 
     useEffect(() => {
         if (!photo) {
-            setPreview(defaultprofile)
+            setPreview(undefined)
             return
         }
         const objectUrl = URL.createObjectURL(photo)
@@ -92,7 +92,7 @@ function Profile() {
                 <div className='row bg-light '>
                     <div className='col-3 pt-5 px-5'>
                         <div className='card pp-section bg-light'>
-                            <Image className='profile-pict' src={preview} alt="profile" />
+                            <Image className='profile-pict' src={preview} layout='fill' alt="profile" />
                         </div>
                         <div className='row pt-3 justify-content-center'>
                             <Button onClick={openModalPicture} className='btn-change-profile' color='danger'>Change Profile Picture</Button>
