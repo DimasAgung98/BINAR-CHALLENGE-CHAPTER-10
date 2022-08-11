@@ -29,7 +29,7 @@ function Profile() {
     // const [data, setData] = useState([]);
 
     // useEffect(() => {
-    //     fetch("http://localhost:4000/users/:id")
+    //     fetch("http://localhost:4000/api/users/:id")
     //         .then(res => res.json())
     //         .then(
     //             (result) => {
@@ -76,7 +76,11 @@ function Profile() {
                 confirmButtonColor: '#dc3545',
             })
         } else {
+<<<<<<< HEAD
             const result = axios.post('http://localhost:4000/upload', form)
+=======
+            const result = axios.post('http://localhost:4000/api/upload', formData)
+>>>>>>> 972a660de6a5b20f177471c1dd97d3d04f441c22
             Swal.fire({
                 icon: 'success',
                 title: 'SUCCESS',

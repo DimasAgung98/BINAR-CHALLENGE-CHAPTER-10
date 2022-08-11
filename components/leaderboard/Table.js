@@ -8,7 +8,7 @@ function Table() {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:4000/users")
+        fetch("http://localhost:4000/api/users")
             .then(res => res.json())
             .then(
                 (result) => {

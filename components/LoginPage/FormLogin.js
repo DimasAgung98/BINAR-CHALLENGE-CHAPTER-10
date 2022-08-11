@@ -14,7 +14,7 @@ function FormLogin() {
         e.preventDefault();
 
         try {
-            const result = await axios.post('http://localhost:4000/login', {
+            const result = await axios.post('http://localhost:4000/api/login', {
                 username: username,
                 password: password
             });
