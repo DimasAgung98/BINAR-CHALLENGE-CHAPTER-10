@@ -161,19 +161,19 @@ function Profile() {
                     <form>
                         <div className="mb-3">
                             <label className="form-label text-black">Name</label>
-                            <input type="text" className="form-control" id="name" aria-describedby="name" />
+                            <input type="text" className="form-control" id="name" aria-describedby="name" value={data?.data?.name}/>
                         </div>
                         <div className="mb-3">
                             <label className="form-label text-black">Username</label>
-                            <input type="text" className="form-control" id="username" aria-describedby="username" />
+                            <input type="text" className="form-control" id="username" aria-describedby="username" value={data?.data?.username}/>
                         </div>
                         <div className="mb-3">
                             <label className="form-label text-black">Email</label>
-                            <input type="email" className="form-control" id="email" aria-describedby="emailHelp" />
+                            <input type="email" className="form-control" id="email" aria-describedby="emailHelp" value={data?.data?.email}/>
                         </div>
                         <div className="mb-3">
                             <label className="form-label text-black">Social Media URL</label>
-                            <input type="text" className="form-control" id="username" aria-describedby="username" />
+                            <input type="text" className="form-control" id="username" aria-describedby="username" value={data?.data?.social}/>
                         </div>
                         <div className="mb-3">
                             <label className='form-label text-black'>About Me</label>
