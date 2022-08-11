@@ -24,24 +24,26 @@ function Profile() {
     const openModalPicture = () => setShowPicture(true);
     const closeModalPicture = () => setShowPicture(false);
 
-    // const [error, setError] = useState(null);
-    // const [isLoaded, setIsLoaded] = useState(false);
-    // const [data, setData] = useState([]);
+    const [error, setError] = useState(null);
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [data, setData] = useState([]);
 
-    // useEffect(() => {
-    //     fetch("http://localhost:4000/api/users/:id")
-    //         .then(res => res.json())
-    //         .then(
-    //             (result) => {
-    //                 setIsLoaded(true);
-    //                 setData(result);
-    //             },
-    //             (error) => {
-    //                 setIsLoaded(true);
-    //                 setError(error);
-    //             }
-    //         )
-    // }, [router])
+    useEffect(() => {
+        fetch("http://localhost:4000/api/users/1")
+            .then(res => res.json())
+            .then(
+                (res) => {
+                    setIsLoaded(true);
+                    setData(res);
+                },
+                (error) => {
+                    setIsLoaded(true);
+                    setError(error);
+                }
+            )
+    }, [])
+
+    console.log(data)
 
     useEffect(() => {
         if (!photo) {
@@ -122,19 +124,19 @@ function Profile() {
                             <form>
                                 <div className="mb-3">
                                     <label className="form-label text-black">Name</label>
-                                    <input type="text" className="form-control" id="name" aria-describedby="name" />
+                                    <input type="text" className="form-control" id="name" aria-describedby="name" value={data?.data?.name} readOnly/>
                                 </div>
                                 <div className="mb-3">
                                     <label className="form-label text-black">Username</label>
-                                    <input type="text" className="form-control" id="username" aria-describedby="username" />
+                                    <input type="text" className="form-control" id="username" aria-describedby="username" value={data?.data?.username} readOnly/>
                                 </div>
                                 <div className="mb-3">
                                     <label className="form-label text-black">Email</label>
-                                    <input type="email" className="form-control" id="email" aria-describedby="emailHelp" />
+                                    <input type="email" className="form-control" id="email" aria-describedby="emailHelp" value={data?.data?.email} readOnly/>
                                 </div>
                                 <div className="mb-3">
                                     <label className="form-label text-black">Social Media URL</label>
-                                    <input type="text" className="form-control" id="username" aria-describedby="username" />
+                                    <input type="text" className="form-control" id="username" aria-describedby="username" value={data?.data?.social} readOnly/>
                                 </div>
                                 <div className="mb-3">
                                     <label className='form-label text-black'>About Me</label>
