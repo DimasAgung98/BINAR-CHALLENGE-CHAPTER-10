@@ -24,24 +24,36 @@ function Profile() {
     const openModalPicture = () => setShowPicture(true);
     const closeModalPicture = () => setShowPicture(false);
 
-    // const [error, setError] = useState(null);
-    // const [isLoaded, setIsLoaded] = useState(false);
-    // const [data, setData] = useState([]);
+    const [error, setError] = useState(null);
+    const [isLoaded, setIsLoaded] = useState(false);
 
-    // useEffect(() => {
-    //     fetch("http://localhost:4000/users/:id")
-    //         .then(res => res.json())
-    //         .then(
-    //             (result) => {
-    //                 setIsLoaded(true);
-    //                 setData(result);
-    //             },
-    //             (error) => {
-    //                 setIsLoaded(true);
-    //                 setError(error);
-    //             }
-    //         )
-    // }, [router])
+    // INISIASI STATE UNTUK DATA PROFILE
+    const [name, setName] = useState('');
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
+    const [social, setSocial] = useState('');
+
+
+
+    useEffect(() => {
+        fetch("http://localhost:4000/api/users/1")
+            .then(res => res.json())
+            .then(
+                (res) => {
+                    setIsLoaded(true);
+                    
+                    setName(res.data.name);
+                    setUsername(res.data.username);
+                    setEmail(res.data.email);
+                    setSocial(res.data.social);
+
+                },
+                (error) => {
+                    setIsLoaded(true);
+                    setError(error);
+                }
+            )
+    }, [])
 
     useEffect(() => {
         if (!photo) {
@@ -54,6 +66,47 @@ function Profile() {
         return () => URL.revokeObjectURL(objectUrl)
     }, [photo])
 
+    //HANDLE UPDATE TO BACKEND
+    const handleUpdateProfile = async (e) => {
+        e.preventDefault();
+
+        try {
+            const result = await axios.post('http://localhost:4000/api/update/1', {
+                name: name, 
+                username: username,
+                email: email
+            });
+
+
+            if (result.data.message === "profile updated!") {
+                console.log('Profil sudah terupdate')
+                Swal.fire({
+                    icon: 'success',
+                    title: 'SUCCESS',
+                    text: 'Profile Updated!',
+                    confirmButtonColor: '#dc3545',
+                })
+                closeModal(); 
+            } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'UPDATE FAILED',
+                        text: 'Please try again',
+                        confirmButtonColor: '#dc3545',
+                    })
+                    
+            }
+
+        }
+        catch (err) {
+            Swal.fire({
+                icon: 'error',
+                title: 'UPDATE FAILED',
+                text: err.toString(),
+                confirmButtonColor: '#dc3545',
+            })
+        }
+    }
 
     function handleUploadChange(e) {
         console.log(e.target.files[0]);
@@ -71,19 +124,19 @@ function Profile() {
         if (!saveImage) {
             Swal.fire({
                 icon: 'warning',
-                title: 'ALERT',
+                title: 'ALERT', 
                 text: 'CHOOSE YOUR PROFILE PICTURE FIRST',
                 confirmButtonColor: '#dc3545',
             })
         } else {
-            const result = axios.post('http://localhost:4000/upload', form)
+            const result = axios.post('http://localhost:4000/api/upload', formData)
             Swal.fire({
                 icon: 'success',
                 title: 'SUCCESS',
                 text: 'IMAGE UPLOADED',
                 confirmButtonColor: '#dc3545',
             })
-            closeModalPicture();
+            closeModalPicture(); 
         }
     }
     return (
@@ -122,19 +175,19 @@ function Profile() {
                             <form>
                                 <div className="mb-3">
                                     <label className="form-label text-black">Name</label>
-                                    <input type="text" className="form-control" id="name" aria-describedby="name" />
+                                    <input type="text" className="form-control" id="name" aria-describedby="name" value={name} readOnly/>
                                 </div>
                                 <div className="mb-3">
                                     <label className="form-label text-black">Username</label>
-                                    <input type="text" className="form-control" id="username" aria-describedby="username" />
+                                    <input type="text" className="form-control" id="username" aria-describedby="username" value={username} readOnly/>
                                 </div>
                                 <div className="mb-3">
                                     <label className="form-label text-black">Email</label>
-                                    <input type="email" className="form-control" id="email" aria-describedby="emailHelp" />
+                                    <input type="email" className="form-control" id="email" aria-describedby="emailHelp" value={email} readOnly/>
                                 </div>
                                 <div className="mb-3">
                                     <label className="form-label text-black">Social Media URL</label>
-                                    <input type="text" className="form-control" id="username" aria-describedby="username" />
+                                    <input type="text" className="form-control" id="social" aria-describedby="username" value={social} readOnly/>
                                 </div>
                                 <div className="mb-3">
                                     <label className='form-label text-black'>About Me</label>
@@ -156,33 +209,37 @@ function Profile() {
                     <b>EDIT DATA</b>
                 </Modal.Header>
                 <Modal.Body>
-                    <form>
+                    <form onSubmit={ handleUpdateProfile }>
                         <div className="mb-3">
                             <label className="form-label text-black">Name</label>
-                            <input type="text" className="form-control" id="name" aria-describedby="name" />
+                            <input type="text" required className="form-control" id="name" aria-describedby="name" value={name} onChange={(e) => setName(e.target.value)}/>
                         </div>
                         <div className="mb-3">
                             <label className="form-label text-black">Username</label>
-                            <input type="text" className="form-control" id="username" aria-describedby="username" />
+                            <input type="text" required className="form-control" id="username" aria-describedby="username" value={username} onChange={(e) => setUsername(e.target.value)}/>
                         </div>
                         <div className="mb-3">
                             <label className="form-label text-black">Email</label>
-                            <input type="email" className="form-control" id="email" aria-describedby="emailHelp" />
-                        </div>
+                            <input type="email" required className="form-control" id="email" aria-describedby="emailHelp" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                        </div>    
                         <div className="mb-3">
                             <label className="form-label text-black">Social Media URL</label>
-                            <input type="text" className="form-control" id="username" aria-describedby="username" />
+                            <input type="text" className="form-control" id="social" aria-describedby="social" value={social} onChange={(e) => setSocial(e.target.value)}/>
                         </div>
                         <div className="mb-3">
                             <label className='form-label text-black'>About Me</label>
                             <textarea className="form-control form-sizing" id="exampleFormControlTextarea1" rows="3"></textarea>
                         </div>
+                        <div className='center'>
+                        <Button type="submit" className="btn btn-danger">Submit</Button>
+                        <Button className='buttonSumbit btn-dark btn-modal' onClick={closeModal}>Close</Button>
+                        </div>
                     </form>
                 </Modal.Body>
-                <Modal.Footer className='center'>
+                {/* <Modal.Footer >
                     <Button type="submit" className="btn btn-danger">Submit</Button>
                     <Button className='buttonSumbit btn-dark btn-modal' onClick={closeModal}>Close</Button>
-                </Modal.Footer>
+                </Modal.Footer> */}
             </Modal>
 
             <Modal show={picture} onHide={closeModal}>
@@ -191,7 +248,7 @@ function Profile() {
                 </Modal.Header>
                 <Modal.Body>
                     <div>
-                        <div className='text-center'>
+                        <div className='text-center'> 
                             <Image src={image} height={250} width={250} className='img-thumbnail' alt='profileimage' />
                         </div>
                         <div className='pt-3'>
