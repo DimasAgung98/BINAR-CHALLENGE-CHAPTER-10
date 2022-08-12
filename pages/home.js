@@ -25,7 +25,7 @@ function HomePage() {
             })
             router.push('/login')
         }
-    }, [router])
+    }, [])
 
     return (
         <>

@@ -13,14 +13,14 @@ function Navhome() {
     const router = useRouter()
     const handleLogout = async (e) => {
         e.preventDefault();
-        localStorage.clear('isAuthenticated');
         Swal.fire({
             icon: 'success',
             title: 'LOG OUT',
             text: 'LOG OUT SUCCESSFULLY',
             confirmButtonColor: '#dc3545',
         })
-        router.push('/')
+        localStorage.clear('isAuthenticated');
+        router.push('/login');
     }
 
     const openProfile = async (e) => {

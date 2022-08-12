@@ -1,5 +1,6 @@
 //IMPORT AXIOS
 import axios from 'axios';
+import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Swal from 'sweetalert2';
@@ -8,6 +9,8 @@ function FormLogin() {
     //USESTATE FOR USERNAME AND PASSWORD
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+
+    const router = useRouter()
 
     //HANDLE ON SUBMIT TO BACKEND
     const handleSubmit = async (e) => {
@@ -43,6 +46,7 @@ function FormLogin() {
                         confirmButtonColor: '#dc3545',
                     })
                     localStorage.setItem('isAuthenticated', true);
+                    router.push('/home');
                 }
             }
 
