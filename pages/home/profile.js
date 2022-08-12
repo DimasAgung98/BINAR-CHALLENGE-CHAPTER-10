@@ -3,19 +3,18 @@ import { useRouter } from 'next/router';
 import Swal from 'sweetalert2';
 import Head from 'next/head';
 //IMPORT COMPONENTS
-import Navhome from '../components/HomePage/Navhome';
-import ListGame from '../components/listGame/Listgame';
-import Sidebar from '../components/HomePage/Sidebar';
-import Footer from "../components/global/Footer";
+import Navhome from '../../components/HomePage/Navhome';
+import Profile from '../../components/ProfilePage/Profile';
+import Footer from "../../components/global/Footer";
 
-function HomePage() {
+function ProfilePage() {
     const router = useRouter()
     useEffect(() => {
         const isAuthenticated = localStorage.getItem('isAuthenticated');
         window.scrollTo(0, 0)
 
         if (isAuthenticated) {
-            router.push('/home');
+            router.push('/home/profile');
         } else {
             Swal.fire({
                 icon: 'info',
@@ -25,19 +24,17 @@ function HomePage() {
             })
             router.push('/login')
         }
-    }, [])
-
+    }, [router])
     return (
         <>
             <Head>
-                <title>HOME | TEAM ONE</title>
+                <title>PROFILE | TEAM ONE</title>
             </Head>
             <Navhome />
-            <Sidebar />
-            <ListGame />
+            <Profile />
             <Footer />
         </>
     )
 }
 
-export default HomePage
+export default ProfilePage
