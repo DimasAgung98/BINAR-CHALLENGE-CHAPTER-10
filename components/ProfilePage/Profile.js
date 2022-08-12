@@ -41,7 +41,7 @@ function Profile() {
             .then(
                 (res) => {
                     setIsLoaded(true);
-                    
+
                     setName(res.data.name);
                     setUsername(res.data.username);
                     setEmail(res.data.email);
@@ -72,7 +72,7 @@ function Profile() {
 
         try {
             const result = await axios.post('http://localhost:4000/api/update/1', {
-                name: name, 
+                name: name,
                 username: username,
                 email: email
             });
@@ -86,15 +86,15 @@ function Profile() {
                     text: 'Profile Updated!',
                     confirmButtonColor: '#dc3545',
                 })
-                closeModal(); 
+                closeModal();
             } else {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'UPDATE FAILED',
-                        text: 'Please try again',
-                        confirmButtonColor: '#dc3545',
-                    })
-                    
+                Swal.fire({
+                    icon: 'error',
+                    title: 'UPDATE FAILED',
+                    text: 'Please try again',
+                    confirmButtonColor: '#dc3545',
+                })
+
             }
 
         }
@@ -124,19 +124,19 @@ function Profile() {
         if (!saveImage) {
             Swal.fire({
                 icon: 'warning',
-                title: 'ALERT', 
+                title: 'ALERT',
                 text: 'CHOOSE YOUR PROFILE PICTURE FIRST',
                 confirmButtonColor: '#dc3545',
             })
         } else {
-            const result = axios.post('http://localhost:4000/api/upload', formData)
+            const result = axios.post('http://localhost:4000/api/upload', form)
             Swal.fire({
                 icon: 'success',
                 title: 'SUCCESS',
                 text: 'IMAGE UPLOADED',
                 confirmButtonColor: '#dc3545',
             })
-            closeModalPicture(); 
+            closeModalPicture();
         }
     }
     return (
@@ -175,19 +175,19 @@ function Profile() {
                             <form>
                                 <div className="mb-3">
                                     <label className="form-label text-black">Name</label>
-                                    <input type="text" className="form-control" id="name" aria-describedby="name" value={name} readOnly/>
+                                    <input type="text" className="form-control" id="name" aria-describedby="name" value={name} readOnly />
                                 </div>
                                 <div className="mb-3">
                                     <label className="form-label text-black">Username</label>
-                                    <input type="text" className="form-control" id="username" aria-describedby="username" value={username} readOnly/>
+                                    <input type="text" className="form-control" id="username" aria-describedby="username" value={username} readOnly />
                                 </div>
                                 <div className="mb-3">
                                     <label className="form-label text-black">Email</label>
-                                    <input type="email" className="form-control" id="email" aria-describedby="emailHelp" value={email} readOnly/>
+                                    <input type="email" className="form-control" id="email" aria-describedby="emailHelp" value={email} readOnly />
                                 </div>
                                 <div className="mb-3">
                                     <label className="form-label text-black">Social Media URL</label>
-                                    <input type="text" className="form-control" id="social" aria-describedby="username" value={social} readOnly/>
+                                    <input type="text" className="form-control" id="social" aria-describedby="username" value={social} readOnly />
                                 </div>
                                 <div className="mb-3">
                                     <label className='form-label text-black'>About Me</label>
@@ -209,37 +209,37 @@ function Profile() {
                     <b>EDIT DATA</b>
                 </Modal.Header>
                 <Modal.Body>
-                    <form onSubmit={ handleUpdateProfile }>
+                    <form onSubmit={handleUpdateProfile}>
                         <div className="mb-3">
                             <label className="form-label text-black">Name</label>
-                            <input type="text" required className="form-control" id="name" aria-describedby="name" value={name} onChange={(e) => setName(e.target.value)}/>
+                            <input type="text" required className="form-control" id="name" aria-describedby="name" value={name} onChange={(e) => setName(e.target.value)} />
                         </div>
                         <div className="mb-3">
                             <label className="form-label text-black">Username</label>
-                            <input type="text" required className="form-control" id="username" aria-describedby="username" value={username} onChange={(e) => setUsername(e.target.value)}/>
+                            <input type="text" required className="form-control" id="username" aria-describedby="username" value={username} onChange={(e) => setUsername(e.target.value)} />
                         </div>
                         <div className="mb-3">
                             <label className="form-label text-black">Email</label>
-                            <input type="email" required className="form-control" id="email" aria-describedby="emailHelp" value={email} onChange={(e) => setEmail(e.target.value)}/>
-                        </div>    
+                            <input type="email" required className="form-control" id="email" aria-describedby="emailHelp" value={email} onChange={(e) => setEmail(e.target.value)} />
+                        </div>
                         <div className="mb-3">
                             <label className="form-label text-black">Social Media URL</label>
-                            <input type="text" className="form-control" id="social" aria-describedby="social" value={social} onChange={(e) => setSocial(e.target.value)}/>
+                            <input type="text" className="form-control" id="social" aria-describedby="social" value={social} onChange={(e) => setSocial(e.target.value)} />
                         </div>
                         <div className="mb-3">
                             <label className='form-label text-black'>About Me</label>
                             <textarea className="form-control form-sizing" id="exampleFormControlTextarea1" rows="3"></textarea>
                         </div>
-                        <div className='center'>
-                        <Button type="submit" className="btn btn-danger">Submit</Button>
-                        <Button className='buttonSumbit btn-dark btn-modal' onClick={closeModal}>Close</Button>
-                        </div>
+                        {/* <div className='center'>
+                            <Button type="submit" className="btn btn-danger">Submit</Button>
+                            <Button className='buttonSumbit btn-dark btn-modal' onClick={closeModal}>Close</Button>
+                        </div> */}
+                        <Modal.Footer >
+                            <Button type="submit" className="btn btn-danger">Submit</Button>
+                            <Button className='buttonSumbit btn-dark btn-modal' onClick={closeModal}>Close</Button>
+                        </Modal.Footer>
                     </form>
                 </Modal.Body>
-                {/* <Modal.Footer >
-                    <Button type="submit" className="btn btn-danger">Submit</Button>
-                    <Button className='buttonSumbit btn-dark btn-modal' onClick={closeModal}>Close</Button>
-                </Modal.Footer> */}
             </Modal>
 
             <Modal show={picture} onHide={closeModal}>
@@ -248,8 +248,8 @@ function Profile() {
                 </Modal.Header>
                 <Modal.Body>
                     <div>
-                        <div className='text-center'> 
-                            <Image src={image} height={250} width={250} className='img-thumbnail' alt='profileimage' />
+                        <div className='text-center'>
+                            <Image src={image} height={250} width={350} className='img-thumbnail' alt='profileimage' />
                         </div>
                         <div className='pt-3'>
                             <label htmlFor='formFile' className='form-label text-black'>Upload Image Here</label>
@@ -258,8 +258,8 @@ function Profile() {
                     </div>
                 </Modal.Body>
                 <Modal.Footer className='center'>
-                    <Button onClick={uploadedImage} type="submit" className="btn btn-danger">Submit</Button>
-                    <Button className='buttonSumbit btn-dark btn-modal' onClick={closeModalPicture}>Close</Button>
+                    <Button onClick={uploadedImage} type="submit" className="btn btn-danger buttonSumbit">Submit</Button>
+                    <Button className='btn-dark btn-modal' onClick={closeModalPicture}>Close</Button>
                 </Modal.Footer>
             </Modal>
         </>
