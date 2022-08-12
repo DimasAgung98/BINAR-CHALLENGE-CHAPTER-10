@@ -118,7 +118,7 @@ function Profile() {
 
     //MENAMBAHKAN DATA KE FORM
     var form = new FormData();
-    form.append('photo', `${saveImage}`);
+    form.append('photo', saveImage);
 
     function uploadedImage(e) {
         if (!saveImage) {
