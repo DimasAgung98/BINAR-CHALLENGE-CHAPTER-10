@@ -20,7 +20,7 @@ function Navhome() {
             confirmButtonColor: '#dc3545',
         })
         localStorage.clear('isAuthenticated');
-        router.push('/login');
+        router.push('/');
     }
 
     const openProfile = async (e) => {
