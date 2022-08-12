@@ -7,6 +7,8 @@ import Swal from 'sweetalert2';
 import NavbarLogo from '../../public/logoteamone.png';
 //IMPORT ICONS
 import { FaUserAlt, FaSignOutAlt } from 'react-icons/fa'
+import { RiCoinFill } from 'react-icons/ri';
+import { from } from 'form-data';
 
 
 function Navhome() {
@@ -43,14 +45,17 @@ function Navhome() {
                                 </div>
                             </a></Link>
                         </div>
-                        <div className='col-6'>
+                        <div className='col-4'>
                         </div>
                         {/* button logout */}
-                        <div className='col-3'>
+                        <div className='col-5'>
                             <div className='collapse navbar-collapse list-text justify-content-end' id='navbarSupportedContent'>
                                 <ul className="navbar-nav">
                                     <li className="nav-item pointer mx-3">
                                         <div className="nav-link" onClick={openProfile}><a><FaUserAlt className='icon-profile' />PROFILE</a></div>
+                                    </li>
+                                    <li className="nav-item pointer mx-3">
+                                        <div className="nav-link"><a><RiCoinFill className='icon-profile' />POINTS: 100</a></div>
                                     </li>
                                     <li className="nav-item pointer mx-3">
                                         <div className="nav-link" onClick={handleLogout}><a><FaSignOutAlt className='icon-logout' />LOGOUT</a></div>
