@@ -55,9 +55,6 @@ function CarouselSection(args) {
                 key={item.src}
             >
                 <Image src={item.src} alt={item.altText} width="1080" height="460" layout='responsive' />
-                <CarouselCaption
-                    captionHeader={item.caption}
-                />
             </CarouselItem>
         );
     });
