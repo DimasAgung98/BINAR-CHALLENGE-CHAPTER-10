@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
@@ -12,6 +12,30 @@ import { from } from 'form-data';
 
 
 function Navhome() {
+    const [error, setError] = useState(null);
+    const [isLoaded, setIsLoaded] = useState(false);
+    // INISIASI STATE UNTUK DATA PROFILE
+    const [username, setUsername] = useState('');
+    const [point, setPoint] = useState('');
+
+    useEffect(() => {
+        fetch("http://localhost:4000/api/users/1")
+            .then(res => res.json())
+            .then(
+                (res) => {
+                    setIsLoaded(true);
+
+                    setUsername(res.data.username);
+                    setPoint(res.data.point);
+
+                },
+                (error) => {
+                    setIsLoaded(true);
+                    setError(error);
+                }
+            )
+    }, [])
+
     const router = useRouter()
     const handleLogout = async (e) => {
         e.preventDefault();
@@ -52,13 +76,13 @@ function Navhome() {
                             <div className='collapse navbar-collapse list-text justify-content-end' id='navbarSupportedContent'>
                                 <ul className="navbar-nav">
                                     <li className="nav-item pointer mx-3">
-                                        <div className="nav-link" onClick={openProfile}><a><FaUserAlt className='icon-profile' />PROFILE</a></div>
+                                        <div className="nav-link" onClick={openProfile}><a className='text-uppercase'><FaUserAlt className='icon-profile mx-1' />{username}</a></div>
                                     </li>
                                     <li className="nav-item pointer mx-3">
-                                        <div className="nav-link"><a><RiCoinFill className='icon-profile' />POINTS: 100</a></div>
+                                        <div className="nav-link"><a><RiCoinFill className='icon-profile mx-1' />POINTS : {point}</a></div>
                                     </li>
                                     <li className="nav-item pointer mx-3">
-                                        <div className="nav-link" onClick={handleLogout}><a><FaSignOutAlt className='icon-logout' />LOGOUT</a></div>
+                                        <div className="nav-link" onClick={handleLogout}><a><FaSignOutAlt className='icon-logout mx-1' />LOGOUT</a></div>
                                     </li>
                                 </ul>
                             </div>
