@@ -20,7 +20,7 @@ const Valo = () => {
         Aos.init({ duration: 2000 });
 
         if (isAuthenticated) {
-            router.push('/games/valorant');
+            // router.push('/games/valorant');
         } else {
             Swal.fire({
                 icon: 'info',

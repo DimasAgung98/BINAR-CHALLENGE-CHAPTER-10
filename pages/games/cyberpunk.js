@@ -20,7 +20,7 @@ const Cyberpunk = () => {
         Aos.init({ duration: 2000 });
 
         if (isAuthenticated) {
-            router.push('/games/cyberpunk');
+            // router.push('/games/cyberpunk');
         } else {
             Swal.fire({
                 icon: 'info',
