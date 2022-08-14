@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import Aos from 'aos';
 //IMPORT REACTSTRAP COMPONENTS
 import { Button } from 'reactstrap';
 //IMPORT LOGO IMAGES
@@ -16,16 +17,19 @@ import apex from '../../public/apex.jpg';
 
 
 function Listgame() {
+    useEffect(() => {
+        Aos.init({ duration: 2000 });
+    }, [])
     return (
         <>
             <div className='container-fluid bg-white pt-5 px-5 ptb'>
                 <div className='row px-5'>
-                    <div className='col our-text'>
+                    <div data-aos='fade-right' className='col our-text'>
                         <h1>OUR GAMES</h1>
                         <p>There are many variations of the games you can played.</p>
                     </div>
                 </div>
-                <div className='row px-5 mb-4'>
+                <div data-aos='flip-down' className='row px-5 mb-4'>
                     <div className='col-lg-4 box'>
                         <Image src={Gta} className="img-fluid" alt="game" />
                     </div>
@@ -36,7 +40,7 @@ function Listgame() {
                         <Image src={Dot} className="img-fluid" alt="game" />
                     </div>
                 </div>
-                <div className='row px-5 mb-3'>
+                <div data-aos='flip-down' className='row px-5 mb-3'>
                     <div className='col-lg-4'>
                         <Image src={Watch} className="img-fluid" alt="game" />
                     </div>
@@ -47,7 +51,7 @@ function Listgame() {
                         <Image src={Cyber} className="img-fluid" alt="game" />
                     </div>
                 </div>
-                <div className='row px-5 mb-3'>
+                <div data-aos='flip-down' className='row px-5 mb-3'>
                     <div className='col-lg-4'>
                         <Image src={Cs} className="img-fluid" alt="game" />
                     </div>

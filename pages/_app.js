@@ -18,6 +18,8 @@ import '../styles/Profile.css';
 import '../styles/RpsGame.css';
 //IMPORT BOOTSTRAP
 import 'bootstrap/dist/css/bootstrap.min.css';
+//IMPORT AOS
+import 'aos/dist/aos.css';
 
 function MyApp({ Component, pageProps }) {
   return (
