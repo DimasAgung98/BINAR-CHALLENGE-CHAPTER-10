@@ -39,6 +39,7 @@ function Navhome() {
     const router = useRouter()
     const handleLogout = async (e) => {
         e.preventDefault();
+        router.push('/');
         Swal.fire({
             icon: 'success',
             title: 'LOG OUT',
@@ -46,7 +47,7 @@ function Navhome() {
             confirmButtonColor: '#dc3545',
         })
         localStorage.clear('isAuthenticated');
-        router.push('/');
+
     }
 
     const openProfile = async (e) => {
