@@ -16,7 +16,7 @@ function Navhome() {
     const [isLoaded, setIsLoaded] = useState(false);
     // INISIASI STATE UNTUK DATA PROFILE
     const [username, setUsername] = useState('');
-    const [point, setPoint] = useState('');
+    const [point, setPoint] = useState(null);
 
     useEffect(() => {
         fetch("http://localhost:4000/api/users/1")
