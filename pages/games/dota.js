@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import Aos from 'aos';
 import { useRouter } from 'next/router';
 import Swal from 'sweetalert2';
 import Dot from '../../public/dota.jpg';
@@ -16,9 +17,10 @@ const Dota = () => {
     const router = useRouter()
     useEffect(() => {
         const isAuthenticated = localStorage.getItem('isAuthenticated');
+        Aos.init({ duration: 2000 });
 
         if (isAuthenticated) {
-            router.push('/games/dota');
+            // router.push('/games/dota');
         } else {
             Swal.fire({
                 icon: 'info',
@@ -38,7 +40,7 @@ const Dota = () => {
             <Sidebar />
             <div className='container-fluid bg-white'>
                 <div className='row'>
-                    <div className='col-6 px-5 py-5 game-text'>
+                    <div data-aos='fade-right' className='col-6 px-5 py-5 game-text'>
                         <h1 className='text-game-title'>DOTA 2</h1>
                         <p>Every day, millions of players worldwide enter the battle as one of over a hundred Dota Heroes in a 5v5 team clash. Dota is the deepest multi-player action RTS game ever made and there always a new strategy or tactic to discover. Its completely free to play and always will be start defending your ancient now.</p>
                         <div>
@@ -47,7 +49,7 @@ const Dota = () => {
                             </Button>
                         </div>
                     </div>
-                    <div className='col-6 px-5 py-5 img-game'>
+                    <div data-aos='fade-left' className='col-6 px-5 py-5 img-game'>
                         <Image className='img-content box-shadow' src={Dot} alt='img' />
                     </div>
                 </div>
@@ -55,7 +57,7 @@ const Dota = () => {
                     <div className='pb-3'>
                         <h2 className='text-center fw-bold'>GAME ACHIEVEMENT</h2>
                     </div>
-                    <div className="col-sm-3">
+                    <div data-aos='fade-right' className="col-sm-3">
                         <div className="card card-size">
                             <div className="card-body card-custom">
                                 <h5 className="card-title">Rampage</h5>
@@ -63,7 +65,7 @@ const Dota = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-sm-3">
+                    <div data-aos='fade-right' className="col-sm-3">
                         <div className="card card-size">
                             <div className="card-body card-custom">
                                 <h5 className="card-title">Support Master</h5>
@@ -71,7 +73,7 @@ const Dota = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-sm-3">
+                    <div data-aos='fade-left' className="col-sm-3">
                         <div className="card card-size">
                             <div className="card-body card-custom">
                                 <h5 className="card-title">Crazy Rich</h5>
@@ -79,7 +81,7 @@ const Dota = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-sm-3">
+                    <div data-aos='fade-left' className="col-sm-3">
                         <div className="card card-size">
                             <div className="card-body card-custom">
                                 <h5 className="card-title">Party Time</h5>

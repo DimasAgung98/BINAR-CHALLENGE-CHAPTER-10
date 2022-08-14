@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import Aos from 'aos';
 import { useRouter } from 'next/router';
 import Swal from 'sweetalert2';
 import Val from '../../public/valo.jpg';
@@ -16,6 +17,7 @@ const Valo = () => {
     const router = useRouter()
     useEffect(() => {
         const isAuthenticated = localStorage.getItem('isAuthenticated');
+        Aos.init({ duration: 2000 });
 
         if (isAuthenticated) {
             router.push('/games/valorant');
@@ -38,7 +40,7 @@ const Valo = () => {
             <Sidebar />
             <div className='container-fluid bg-white'>
                 <div className='row'>
-                    <div className='col-6 px-5 py-5 game-text'>
+                    <div data-aos='fade-right' className='col-6 px-5 py-5 game-text'>
                         <h1 className='text-game-title'>VALORANT</h1>
                         <p>Blend your style and experience on a global, competitive stage. You have 13 rounds to attack and defend your side using sharp gunplay and tactical abilities. And, with one life per-round, you need to think faster than your opponent if you want to survive.</p>
                         <div>
@@ -47,7 +49,7 @@ const Valo = () => {
                             </Button>
                         </div>
                     </div>
-                    <div className='col-6 px-5 py-5 img-game'>
+                    <div data-aos='fade-left' className='col-6 px-5 py-5 img-game'>
                         <Image className='img-content box-shadow' src={Val} alt='img' />
                     </div>
                 </div>
@@ -55,7 +57,7 @@ const Valo = () => {
                     <div className='pb-3'>
                         <h2 className='text-center fw-bold'>GAME ACHIEVEMENT</h2>
                     </div>
-                    <div className="col-sm-3">
+                    <div data-aos='fade-right' className="col-sm-3">
                         <div className="card card-size">
                             <div className="card-body card-custom">
                                 <h5 className="card-title">Best Region</h5>
@@ -63,7 +65,7 @@ const Valo = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-sm-3">
+                    <div data-aos='fade-right' className="col-sm-3">
                         <div className="card card-size">
                             <div className="card-body card-custom">
                                 <h5 className="card-title">God in Time</h5>
@@ -71,7 +73,7 @@ const Valo = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-sm-3">
+                    <div data-aos='fade-left' className="col-sm-3">
                         <div className="card card-size">
                             <div className="card-body card-custom">
                                 <h5 className="card-title">Watch Your Head</h5>
@@ -79,7 +81,7 @@ const Valo = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-sm-3">
+                    <div data-aos='fade-left' className="col-sm-3">
                         <div className="card card-size">
                             <div className="card-body card-custom">
                                 <h5 className="card-title">Crazy Rich</h5>
