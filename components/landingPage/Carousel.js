@@ -56,7 +56,6 @@ function CarouselSection(args) {
             >
                 <Image src={item.src} alt={item.altText} width="1080" height="460" layout='responsive' />
                 <CarouselCaption
-                    captionText={item.caption}
                     captionHeader={item.caption}
                 />
             </CarouselItem>
