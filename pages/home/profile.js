@@ -25,6 +25,7 @@ function ProfilePage() {
             router.push('/login')
         }
     }, [router])
+
     return (
         <>
             <Head>

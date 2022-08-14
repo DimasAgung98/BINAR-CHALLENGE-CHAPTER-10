@@ -15,7 +15,7 @@ function HomePage() {
         window.scrollTo(0, 0)
 
         if (isAuthenticated) {
-            // router.push('/home');
+            router.push('/home');
         } else {
             Swal.fire({
                 icon: 'info',
