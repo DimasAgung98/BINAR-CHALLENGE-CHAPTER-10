@@ -19,6 +19,7 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.4.0",
     "reactstrap": "^9.1.2",
+    "sharp": "^0.30.7",
     "sweetalert2": "^11.4.26"
   },
   "devDependencies": {

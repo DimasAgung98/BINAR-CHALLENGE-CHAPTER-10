@@ -121,7 +121,7 @@ function HeroLandingPage() {
         <div className='row px-5'>
           <div className='col-md-4'>
             <div className="card-testi">
-              <Image src={Man1} class="card-img-top" alt="man" />
+              <Image src={Man1} className="card-img-top" alt="man" />
               <div className="card-body mt-3">
                 <h4 className='name-testi'>BRODY</h4>
                 <p className="card-text text-center">&quot;The games here are very fun, I play until I lose track of time&quot;</p>
@@ -130,7 +130,7 @@ function HeroLandingPage() {
           </div>
           <div className='col-md-4'>
             <div className="card-testi">
-              <Image src={Man3} class="card-img-top" alt="man" />
+              <Image src={Man3} className="card-img-top" alt="man" />
               <div className="card-body mt-3">
                 <h4 className='name-testi'>JHONY</h4>
                 <p className="card-text text-center">&quot;The game here is very unique, I usually play it with my child&quot;</p>
@@ -139,7 +139,7 @@ function HeroLandingPage() {
           </div>
           <div className='col-md-4'>
             <div className="card-testi">
-              <Image src={Man2} class="card-img-top" alt="man" />
+              <Image src={Man2} className="card-img-top" alt="man" />
               <div className="card-body mt-3">
                 <h4 className='name-testi'>PABLO</h4>
                 <p className="card-text text-center">&quot;The support here really helps me when I have problems and the game is very cool to play&quot;</p>

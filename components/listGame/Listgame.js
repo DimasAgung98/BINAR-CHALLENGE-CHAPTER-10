@@ -27,35 +27,35 @@ function Listgame() {
                 </div>
                 <div className='row px-5 mb-4'>
                     <div className='col-lg-4 box'>
-                        <Image src={Gta} class="img-fluid" alt="game" />
+                        <Image src={Gta} className="img-fluid" alt="game" />
                     </div>
                     <div className='col-lg-4'>
-                        <Image src={Fall} class="img-fluid" alt="game" />
+                        <Image src={Fall} className="img-fluid" alt="game" />
                     </div>
                     <div className='col-lg-4'>
-                        <Image src={Dot} class="img-fluid" alt="game" />
-                    </div>
-                </div>
-                <div className='row px-5 mb-3'>
-                    <div className='col-lg-4'>
-                        <Image src={Watch} class="img-fluid" alt="game" />
-                    </div>
-                    <div className='col-lg-4'>
-                        <Image src={Val} class="img-fluid" alt="game" />
-                    </div>
-                    <div className='col-lg-4'>
-                        <Image src={Cyber} class="img-fluid" alt="game" />
+                        <Image src={Dot} className="img-fluid" alt="game" />
                     </div>
                 </div>
                 <div className='row px-5 mb-3'>
                     <div className='col-lg-4'>
-                        <Image src={Cs} class="img-fluid" alt="game" />
+                        <Image src={Watch} className="img-fluid" alt="game" />
                     </div>
                     <div className='col-lg-4'>
-                        <Image src={Rps} class="img-fluid" alt="game" />
+                        <Image src={Val} className="img-fluid" alt="game" />
                     </div>
                     <div className='col-lg-4'>
-                        <Image src={apex} class="img-fluid" alt="game" />
+                        <Image src={Cyber} className="img-fluid" alt="game" />
+                    </div>
+                </div>
+                <div className='row px-5 mb-3'>
+                    <div className='col-lg-4'>
+                        <Image src={Cs} className="img-fluid" alt="game" />
+                    </div>
+                    <div className='col-lg-4'>
+                        <Image src={Rps} className="img-fluid" alt="game" />
+                    </div>
+                    <div className='col-lg-4'>
+                        <Image src={apex} className="img-fluid" alt="game" />
                     </div>
                 </div>
                 <div className='row'>
