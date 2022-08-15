@@ -5,10 +5,19 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Swal from 'sweetalert2';
 
+// import jsonwebtoken to convert  jwt into json
+const jwt = require('jsonwebtoken');
+
+// import dispatch and action (Redux)
+import { useDispatch } from 'react-redux'
+import { addAuth, removeAuth } from '../../features/authentication/authenticationSlice'
+
 function FormLogin() {
     //USESTATE FOR USERNAME AND PASSWORD
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    
+    const dispatch = useDispatch();
 
     const router = useRouter()
 
@@ -45,6 +54,12 @@ function FormLogin() {
                         text: 'Login Success!',
                         confirmButtonColor: '#dc3545',
                     })
+
+                    const decodedToken = jwt.decode(result.data.token);
+                    console.log(decodedToken.id);
+
+                    dispatch(addAuth({ id : decodedToken.id }));
+
                     localStorage.setItem('isAuthenticated', true);
                     router.push('/home');
                 }

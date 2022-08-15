@@ -18,15 +18,18 @@ import '../styles/Profile.css';
 import '../styles/RpsGame.css';
 //IMPORT BOOTSTRAP
 import 'bootstrap/dist/css/bootstrap.min.css';
+// IMPORT REDUX
+import { Provider } from 'react-redux';
+import store from '../app/store';
 //IMPORT AOS
 import 'aos/dist/aos.css';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <>
+    <Provider store={store}>
       <HeadContent />
       <Component {...pageProps} />
-    </>
+    </Provider>
   )
 }
 
