@@ -3,15 +3,15 @@ import { createSlice } from '@reduxjs/toolkit';
 export const authenticationSlice = createSlice({
   name: 'authentication',
   initialState: {
-    id: ''
+    id: ""
   },
   reducers: {
     addAuth: (state, action) => {
-        state.id == action.payload.id ;
+        state.id = action.payload.id ;
     }
     ,
     removeAuth: state => {
-        state.id == ''
+        state.id = ""
     }
   }
 });

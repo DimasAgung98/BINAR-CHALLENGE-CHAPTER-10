@@ -18,6 +18,9 @@ import '../styles/Profile.css';
 import '../styles/RpsGame.css';
 //IMPORT BOOTSTRAP
 import 'bootstrap/dist/css/bootstrap.min.css';
+// IMPORT REDUX
+import { Provider } from 'react-redux';
+import store from '../app/store';
 
 function MyApp({ Component, pageProps }) {
   return (
