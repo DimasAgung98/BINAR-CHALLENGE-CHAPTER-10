@@ -7,7 +7,7 @@ import Footer from '../components/global/Footer';
 
 export default function LandingPage() {
   useEffect(() => {
-    window.scrollTo(0, 0)
+    window.scrollTo(0, 0);
   }, [])
   return (
     <>

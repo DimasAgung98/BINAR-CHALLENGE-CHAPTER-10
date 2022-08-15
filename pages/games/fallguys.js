@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import Aos from 'aos';
 import { useRouter } from 'next/router';
 import Swal from 'sweetalert2';
 import Fall from '../../public/fall.jpg';
@@ -16,9 +17,10 @@ const Fallguys = () => {
     const router = useRouter()
     useEffect(() => {
         const isAuthenticated = localStorage.getItem('isAuthenticated');
+        Aos.init({ duration: 2000 });
 
         if (isAuthenticated) {
-            router.push('/games/fall-guys');
+            // router.push('/games/fallguys');
         } else {
             Swal.fire({
                 icon: 'info',
@@ -38,7 +40,7 @@ const Fallguys = () => {
             <Sidebar />
             <div className='container-fluid bg-white'>
                 <div className='row'>
-                    <div className='col-6 px-5 py-5 game-text'>
+                    <div data-aos='fade-right' className='col-6 px-5 py-5 game-text'>
                         <h1 className='text-game-title'>FALL GUYS</h1>
                         <p>Welcome to Fall Guys: Free for All! You are invited to dive and dodge your way to victory in the pantheon of clumsy. Rookie or pro? Solo or partied up? Fall Guys delivers ever-evolving, high-concentrated hilarity and fun!</p>
                         <div>
@@ -47,7 +49,7 @@ const Fallguys = () => {
                             </Button>
                         </div>
                     </div>
-                    <div className='col-6 px-5 py-5 img-game'>
+                    <div data-aos='fade-left' className='col-6 px-5 py-5 img-game'>
                         <Image className='img-content box-shadow' src={Fall} alt='img' />
                     </div>
                 </div>
@@ -55,7 +57,7 @@ const Fallguys = () => {
                     <div className='pb-3'>
                         <h2 className='text-center fw-bold'>GAME ACHIEVEMENT</h2>
                     </div>
-                    <div className="col-sm-3">
+                    <div data-aos='fade-right' className="col-sm-3">
                         <div className="card card-size">
                             <div className="card-body card-custom">
                                 <h5 className="card-title">Runner</h5>
@@ -63,7 +65,7 @@ const Fallguys = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-sm-3">
+                    <div data-aos='fade-right' className="col-sm-3">
                         <div className="card card-size">
                             <div className="card-body card-custom">
                                 <h5 className="card-title">Cold Master</h5>
@@ -71,7 +73,7 @@ const Fallguys = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-sm-3">
+                    <div data-aos='fade-left' className="col-sm-3">
                         <div className="card card-size">
                             <div className="card-body card-custom">
                                 <h5 className="card-title">Big Bos</h5>
@@ -79,7 +81,7 @@ const Fallguys = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-sm-3">
+                    <div data-aos='fade-left' className="col-sm-3">
                         <div className="card card-size">
                             <div className="card-body card-custom">
                                 <h5 className="card-title">Funny Guy</h5>

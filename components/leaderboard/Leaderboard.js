@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import Aos from 'aos';
 import Table from './Table';
 
 function Leaderboard() {
+    useEffect(() => {
+        Aos.init({ duration: 2000 });
+    }, [])
     return (
         <>
             <div className='container-fluid bg-light leaderboard-page'>
@@ -10,7 +14,7 @@ function Leaderboard() {
                         <h1 className='fw-bold'>TOP <p className='text-players'>PLAYERS</p></h1>
                     </div>
                 </div>
-                <div className='container bg-light'>
+                <div data-aos='fade' className='container bg-light'>
                     <div className='row mb-3 mx-3'>
                         <div className='col-10'>
                             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />

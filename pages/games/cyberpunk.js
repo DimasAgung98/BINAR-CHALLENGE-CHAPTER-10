@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import Aos from 'aos';
 import { useRouter } from 'next/router';
 import Swal from 'sweetalert2';
 import Cyber from '../../public/cyber.jpg';
@@ -16,9 +17,10 @@ const Cyberpunk = () => {
     const router = useRouter()
     useEffect(() => {
         const isAuthenticated = localStorage.getItem('isAuthenticated');
+        Aos.init({ duration: 2000 });
 
         if (isAuthenticated) {
-            router.push('/games/cyber-punk');
+            // router.push('/games/cyberpunk');
         } else {
             Swal.fire({
                 icon: 'info',
@@ -38,7 +40,7 @@ const Cyberpunk = () => {
             <Sidebar />
             <div className='container-fluid bg-white'>
                 <div className='row'>
-                    <div className='col-6 px-5 py-5 game-text'>
+                    <div data-aos='fade-right' className='col-6 px-5 py-5 game-text'>
                         <h1 className='text-game-title'>CYBERPUNK</h1>
                         <p>Cyberpunk 2077 is an open-world, action-adventure RPG set in the megalopolis of Night City, where you play as a cyberpunk mercenary wrapped up in a do-or-die fight for survival. Improved and featuring all-new free additional content, customize your character and playstyle as you take on jobs, build a reputation, and unlock upgrades.</p>
                         <div>
@@ -47,7 +49,7 @@ const Cyberpunk = () => {
                             </Button>
                         </div>
                     </div>
-                    <div className='col-6 px-5 py-5 img-game'>
+                    <div data-aos='fade-left' className='col-6 px-5 py-5 img-game'>
                         <Image className='img-content box-shadow' src={Cyber} alt='img' />
                     </div>
                 </div>
@@ -56,7 +58,7 @@ const Cyberpunk = () => {
                         <h2 className='text-center fw-bold'>GAME ACHIEVEMENT</h2>
                     </div>
                     <div className="col-sm-3">
-                        <div className="card card-size">
+                        <div data-aos='fade-right' className="card card-size">
                             <div className="card-body card-custom">
                                 <h5 className="card-title">Right Back At Ya</h5>
                                 <p className="card-text">Kill or incapacitate an enemy who threw a grenade at you.</p>
@@ -64,7 +66,7 @@ const Cyberpunk = () => {
                         </div>
                     </div>
                     <div className="col-sm-3">
-                        <div className="card card-size">
+                        <div data-aos='fade-right' className="card card-size">
                             <div className="card-body card-custom">
                                 <h5 className="card-title">True Soldier</h5>
                                 <p className="card-text">Kill or incapacitate 300 enemies using ranged weapons.</p>
@@ -72,7 +74,7 @@ const Cyberpunk = () => {
                         </div>
                     </div>
                     <div className="col-sm-3">
-                        <div className="card card-size">
+                        <div data-aos='fade-left' className="card card-size">
                             <div className="card-body card-custom">
                                 <h5 className="card-title">Stanislavskis Method</h5>
                                 <p className="card-text">Use a dialogue option related to Vs life path 10 times.</p>
@@ -80,7 +82,7 @@ const Cyberpunk = () => {
                         </div>
                     </div>
                     <div className="col-sm-3">
-                        <div className="card card-size">
+                        <div data-aos='fade-left' className="card card-size">
                             <div className="card-body card-custom">
                                 <h5 className="card-title">Two Heads, One Bullet</h5>
                                 <p className="card-text">Kill or incapacitate 2 enemies with the same sniper rifle shot.</p>

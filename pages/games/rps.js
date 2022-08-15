@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import Aos from 'aos';
 import { useRouter } from 'next/router';
 import Swal from 'sweetalert2';
 import Rps1 from '../../public/rps.png';
@@ -16,9 +17,10 @@ function Rps() {
     const router = useRouter()
     useEffect(() => {
         const isAuthenticated = localStorage.getItem('isAuthenticated');
+        Aos.init({ duration: 2000 });
 
         if (isAuthenticated) {
-            router.push('/games/rps');
+            // router.push('/games/rps');
         } else {
             Swal.fire({
                 icon: 'info',
@@ -38,7 +40,7 @@ function Rps() {
             <Sidebar />
             <div className='container-fluid bg-white'>
                 <div className='row'>
-                    <div className='col-6 px-5 py-5 game-text'>
+                    <div data-aos='fade-right' className='col-6 px-5 py-5 game-text'>
                         <h1 className='text-game-title'>ROCK PAPER SCISSORS</h1>
                         <p>A classic two-person game. Players start each round by saying, “rock, paper, scissors, shoot!” On “shoot,” each player holds out their fist for rock, flat hand for paper, or their index and middle finger for scissors. Rock crushes scissors, scissors cut paper, and paper covers rock. See who wins each round!</p>
                         <div>
@@ -47,7 +49,7 @@ function Rps() {
                             </Button></Link>
                         </div>
                     </div>
-                    <div className='col-6 px-5 py-5 img-game'>
+                    <div data-aos='fade-left' className='col-6 px-5 py-5 img-game'>
                         <Image className='img-content box-shadow' src={Rps1} alt='img' />
                     </div>
                 </div>
@@ -55,7 +57,7 @@ function Rps() {
                     <div className='pb-3'>
                         <h2 className='text-center fw-bold'>GAME ACHIEVEMENT</h2>
                     </div>
-                    <div className="col-sm-3">
+                    <div data-aos='fade-right' className="col-sm-3">
                         <div className="card card-size">
                             <div className="card-body card-custom">
                                 <h5 className="card-title">Rampage</h5>
@@ -63,7 +65,7 @@ function Rps() {
                             </div>
                         </div>
                     </div>
-                    <div className="col-sm-3">
+                    <div data-aos='fade-right' className="col-sm-3">
                         <div className="card card-size">
                             <div className="card-body card-custom">
                                 <h5 className="card-title">Paper Master</h5>
@@ -71,7 +73,7 @@ function Rps() {
                             </div>
                         </div>
                     </div>
-                    <div className="col-sm-3">
+                    <div data-aos='fade-left' className="col-sm-3">
                         <div className="card card-size">
                             <div className="card-body card-custom">
                                 <h5 className="card-title">Crazy Rock</h5>
@@ -79,7 +81,7 @@ function Rps() {
                             </div>
                         </div>
                     </div>
-                    <div className="col-sm-3">
+                    <div data-aos='fade-left' className="col-sm-3">
                         <div className="card card-size">
                             <div className="card-body card-custom">
                                 <h5 className="card-title">Party Time</h5>

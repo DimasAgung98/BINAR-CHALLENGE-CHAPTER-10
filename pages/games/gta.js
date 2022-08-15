@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import Aos from 'aos';
 import { useRouter } from 'next/router';
 import Swal from 'sweetalert2';
 import GTA5 from '../../public/gta.jpg';
@@ -16,9 +17,10 @@ const Gta = () => {
     const router = useRouter()
     useEffect(() => {
         const isAuthenticated = localStorage.getItem('isAuthenticated');
+        Aos.init({ duration: 2000 });
 
         if (isAuthenticated) {
-            router.push('/games/gta');
+            // router.push('/games/gta');
         } else {
             Swal.fire({
                 icon: 'info',
@@ -38,7 +40,7 @@ const Gta = () => {
             <Sidebar />
             <div className='container-fluid bg-white'>
                 <div className='row'>
-                    <div className='col-6 px-5 py-5 game-text'>
+                    <div data-aos='fade-right' className='col-6 px-5 py-5 game-text'>
                         <h1 className='text-game-title'>GRAND THEFT AUTO V</h1>
                         <p>Grand Theft Auto V evolves nearly every mechanic that was in the previous Grand Theft Auto games. As far as driving goes, the vehicles have been greatly improved, with Rockstar running more complex physics on them, such as making some cars hold to the ground slightly better.</p>
                         <div>
@@ -47,7 +49,7 @@ const Gta = () => {
                             </Button>
                         </div>
                     </div>
-                    <div className='col-6 px-5 py-5 img-game'>
+                    <div data-aos='fade-left' className='col-6 px-5 py-5 img-game'>
                         <Image className='img-content box-shadow' src={GTA5} alt='img' />
                     </div>
                 </div>
@@ -55,7 +57,7 @@ const Gta = () => {
                     <div className='pb-3'>
                         <h2 className='text-center fw-bold'>GAME ACHIEVEMENT</h2>
                     </div>
-                    <div className="col-sm-3">
+                    <div data-aos='fade-right' className="col-sm-3">
                         <div className="card card-size">
                             <div className="card-body card-custom">
                                 <h5 className="card-title">Best Car Customization</h5>
@@ -63,7 +65,7 @@ const Gta = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-sm-3">
+                    <div data-aos='fade-right' className="col-sm-3">
                         <div className="card card-size">
                             <div className="card-body card-custom">
                                 <h5 className="card-title">Stick Up Kid</h5>
@@ -71,7 +73,7 @@ const Gta = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-sm-3">
+                    <div data-aos='fade-left' className="col-sm-3">
                         <div className="card card-size">
                             <div className="card-body card-custom">
                                 <h5 className="card-title">Mastermind</h5>
@@ -79,7 +81,7 @@ const Gta = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-sm-3 card-size">
+                    <div data-aos='fade-left' className="col-sm-3 card-size">
                         <div className="card card-size">
                             <div className="card-body card-custom">
                                 <h5 className="card-title">Red Mist</h5>

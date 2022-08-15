@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import Aos from 'aos';
 //IMPORT REACTSTRAP COMPONENTS
 import { Button } from 'reactstrap';
 //IMPORT COMPONENTS PAGE
@@ -17,6 +18,9 @@ import BG from '../../public/BG.mp4';
 
 
 function HeroLandingPage() {
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, [])
   return (
     <>
       {/* 1st page */}
@@ -26,7 +30,7 @@ function HeroLandingPage() {
         </div>
         <div className='row main-section'>
           <div className='col-lg-12'>
-            <div className='title-text'>
+            <div data-aos='fade' className='title-text'>
               <h1>TEAM<span>ONE</span></h1>
               <p>Play various games from Team One Project and enjoy the fun. <br></br>Hurry up register your account and play the game</p>
             </div>
@@ -42,7 +46,7 @@ function HeroLandingPage() {
         <div className='row px-5'>
           <div className='col-lg-4 col-md-6 col-sm-6 col-12 text-left'>
             <div className='text-card'>
-              <div className='card card-styles'>
+              <div data-aos='fade-up-left' className='card card-styles'>
                 <div className='card-body'>
                   <BiUser className='card-icon ms-3' />
                   <h5 className='card-title ms-3'>JOINED USER</h5>
@@ -53,7 +57,7 @@ function HeroLandingPage() {
           </div>
           <div className='col-lg-4 col-md-6 col-sm-6 col-12 text-left'>
             <div className='text-card'>
-              <div className='card card-styles'>
+              <div data-aos='fade-up' className='card card-styles'>
                 <div className='card-body'>
                   <BiJoystick className='card-icon ms-3' />
                   <h5 className='card-title ms-3'>MANY GAME</h5>
@@ -64,7 +68,7 @@ function HeroLandingPage() {
           </div>
           <div className='col-lg-4 col-md-6 col-sm-6 col-12 text-left'>
             <div className='text-card'>
-              <div className='card card-styles'>
+              <div data-aos='fade-up-right' className='card card-styles'>
                 <div className='card-body'>
                   <BiBarChartAlt className='card-icon ms-3' />
                   <h5 className='card-title ms-3'>LEADERBOARD SYSTEM</h5>
@@ -77,7 +81,7 @@ function HeroLandingPage() {
         <div className='row px-5 pt-5'>
           <div className='col-lg-4 col-md-6 col-sm-6 col-12 text-left'>
             <div className='text-card'>
-              <div className='card card-styles'>
+              <div data-aos='fade-up-left' className='card card-styles'>
                 <div className='card-body'>
                   <BiFace className='card-icon ms-3' />
                   <h5 className='card-title ms-3'>24 HOURS SUPPORT</h5>
@@ -88,7 +92,7 @@ function HeroLandingPage() {
           </div>
           <div className='col-lg-4 col-md-6 col-sm-6 col-12 text-left'>
             <div className='text-card'>
-              <div className='card card-styles'>
+              <div data-aos='fade-up' className='card card-styles'>
                 <div className='card-body'>
                   <BiGitMerge className='card-icon ms-3' />
                   <h5 className='card-title ms-3'>CONNECT SOCIAL MEDIA</h5>
@@ -99,7 +103,7 @@ function HeroLandingPage() {
           </div>
           <div className='col-lg-4 col-md-6 col-sm-6 col-12 text-left'>
             <div className='text-card'>
-              <div className='card card-styles'>
+              <div data-aos='fade-up-right' className='card card-styles'>
                 <div className='card-body'>
                   <BiIdCard className='card-icon ms-3' />
                   <h5 className='card-title ms-3'>SAFE PRIVACY</h5>
@@ -114,14 +118,14 @@ function HeroLandingPage() {
       <OurGames />
       {/* 4th page */}
       <div className='container-fluid py-5 bg-light'>
-        <div className='row py-5 px-5 text-center'>
+        <div data-aos='fade-up' className='row py-5 px-5 text-center'>
           <h5 className='fw-bold testi'>TESTIMONIALS</h5>
           <h2> What People Say</h2>
         </div>
         <div className='row px-5'>
           <div className='col-md-4'>
-            <div className="card-testi">
-              <Image src={Man1} class="card-img-top" alt="man" />
+            <div data-aos='fade-left' className="card-testi">
+              <Image src={Man1} className="card-img-top" alt="man" />
               <div className="card-body mt-3">
                 <h4 className='name-testi'>BRODY</h4>
                 <p className="card-text text-center">&quot;The games here are very fun, I play until I lose track of time&quot;</p>
@@ -129,8 +133,8 @@ function HeroLandingPage() {
             </div>
           </div>
           <div className='col-md-4'>
-            <div className="card-testi">
-              <Image src={Man3} class="card-img-top" alt="man" />
+            <div data-aos='fade-up' className="card-testi">
+              <Image src={Man3} className="card-img-top" alt="man" />
               <div className="card-body mt-3">
                 <h4 className='name-testi'>JHONY</h4>
                 <p className="card-text text-center">&quot;The game here is very unique, I usually play it with my child&quot;</p>
@@ -138,8 +142,8 @@ function HeroLandingPage() {
             </div>
           </div>
           <div className='col-md-4'>
-            <div className="card-testi">
-              <Image src={Man2} class="card-img-top" alt="man" />
+            <div data-aos='fade-right' className="card-testi">
+              <Image src={Man2} className="card-img-top" alt="man" />
               <div className="card-body mt-3">
                 <h4 className='name-testi'>PABLO</h4>
                 <p className="card-text text-center">&quot;The support here really helps me when I have problems and the game is very cool to play&quot;</p>

@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     Carousel,
     CarouselItem,
     CarouselControl,
     CarouselIndicators,
-    CarouselCaption,
 } from 'reactstrap';
+import Aos from 'aos';
 import Link from 'next/link';
 import Image from 'next/image';
 //IMPORT REACTSTRAP COMPONENTS
@@ -27,6 +27,11 @@ const items = [
 ];
 
 function CarouselSection(args) {
+
+    useEffect(() => {
+        Aos.init({ duration: 2000 });
+    }, [])
+
     const [activeIndex, setActiveIndex] = useState(0);
     const [animating, setAnimating] = useState(false);
 
@@ -55,10 +60,6 @@ function CarouselSection(args) {
                 key={item.src}
             >
                 <Image src={item.src} alt={item.altText} width="1080" height="460" layout='responsive' />
-                <CarouselCaption
-                    captionText={item.caption}
-                    captionHeader={item.caption}
-                />
             </CarouselItem>
         );
     });
@@ -66,12 +67,12 @@ function CarouselSection(args) {
         <>
             <div className='container-fluid bg-light ptb'>
                 <div className='row px-4'>
-                    <div className='col-5 px-5 hero-desc'>
+                    <div data-aos='fade-up' className='col-5 px-5 hero-desc'>
                         <h1>TEAM <span>ONE</span> PRODUCTION</h1><hr />
                         <p>Are you ready for the unique game all the world ? prepare yourself and play the game</p>
                         <Link href='/register'><Button color='danger'>REGISTER NOW !</Button></Link>
                     </div>
-                    <div className='col-md-7'>
+                    <div data-aos='fade-up' className='col-md-7'>
                         <Carousel
                             activeIndex={activeIndex}
                             next={next}

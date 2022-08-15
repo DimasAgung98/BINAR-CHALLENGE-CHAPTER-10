@@ -15,7 +15,7 @@ function RpsGame() {
         const isAuthenticated = localStorage.getItem('isAuthenticated');
 
         if (isAuthenticated) {
-            router.push('/games/fall-guys');
+            // router.push('/games/fall-guys');
         } else {
             Swal.fire({
                 icon: 'info',

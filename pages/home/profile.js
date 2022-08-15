@@ -14,7 +14,7 @@ function ProfilePage() {
         window.scrollTo(0, 0)
 
         if (isAuthenticated) {
-            router.push('/home/profile');
+            // router.push('/home/profile');
         } else {
             Swal.fire({
                 icon: 'info',
@@ -25,6 +25,7 @@ function ProfilePage() {
             router.push('/login')
         }
     }, [router])
+
     return (
         <>
             <Head>
