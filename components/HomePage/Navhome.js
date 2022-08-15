@@ -10,6 +10,10 @@ import { FaUserAlt, FaSignOutAlt } from 'react-icons/fa'
 import { RiCoinFill } from 'react-icons/ri';
 import { from } from 'form-data';
 
+// import dispatch and action (Redux)
+import { useDispatch } from 'react-redux'
+import { removeAuth } from '../../features/authentication/authenticationSlice'
+
 
 function Navhome() {
     const [error, setError] = useState(null);
@@ -17,6 +21,8 @@ function Navhome() {
     // INISIASI STATE UNTUK DATA PROFILE
     const [username, setUsername] = useState('');
     const [point, setPoint] = useState(null);
+    // Put dispatch into variable
+    const dispatch = useDispatch();
 
     useEffect(() => {
         fetch("http://localhost:4000/api/users/1")
@@ -48,6 +54,7 @@ function Navhome() {
         })
         router.push('/')
         localStorage.clear('isAuthenticated');
+        dispatch(removeAuth());
     }
 
     const openProfile = async (e) => {
