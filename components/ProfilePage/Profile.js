@@ -11,6 +11,8 @@ import Swal from 'sweetalert2';
 import { FaInstagram, FaTwitter, FaTiktok, FaFacebook } from 'react-icons/fa';
 import dummy from '../../public/uploaddummy.png';
 import defaultprofile from '../../public/profile-dummy.png';
+// Import Redux useSelector
+import { useSelector } from 'react-redux'
 
 function Profile() {
     const [show, setShow] = useState();
@@ -32,11 +34,13 @@ function Profile() {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [social, setSocial] = useState('');
+    const [aboutMe, setAboutMe] = useState('');
 
-
+    // Put authentication store's data into variable
+    const authId = useSelector(state => state.authentication.id)
 
     useEffect(() => {
-        fetch("http://localhost:4000/api/users/1")
+        fetch(`http://localhost:4000/api/users/${authId}`)
             .then(res => res.json())
             .then(
                 (res) => {
@@ -46,6 +50,7 @@ function Profile() {
                     setUsername(res.data.username);
                     setEmail(res.data.email);
                     setSocial(res.data.social);
+                    setAboutMe(res.data.about_me);
 
                 },
                 (error) => {
@@ -71,11 +76,12 @@ function Profile() {
         e.preventDefault();
 
         try {
-            const result = await axios.post('http://localhost:4000/api/update/1', {
+            const result = await axios.post(`http://localhost:4000/api/update/${authId}`, {
                 name: name,
                 username: username,
                 email: email,
                 social: social,
+                about_me: aboutMe
             });
 
 
@@ -192,7 +198,7 @@ function Profile() {
                                 </div>
                                 <div className="mb-3">
                                     <label className='form-label text-black'>About Me</label>
-                                    <textarea className="form-control form-sizing" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                    <textarea className="form-control form-sizing" id="exampleFormControlTextarea1" aria-describedby="aboutMe" value={aboutMe} readOnly rows="3"></textarea>
                                 </div>
                             </form>
                             {/* )
@@ -229,7 +235,7 @@ function Profile() {
                         </div>
                         <div className="mb-3">
                             <label className='form-label text-black'>About Me</label>
-                            <textarea className="form-control form-sizing" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea className="form-control form-sizing" id="exampleFormControlTextarea1" aria-describedby="social" value={aboutMe} onChange={(e) => setAboutMe(e.target.value)} rows="3"></textarea>
                         </div>
                         <Modal.Footer >
                             <Button type="submit" className="btn btn-danger">Submit</Button>

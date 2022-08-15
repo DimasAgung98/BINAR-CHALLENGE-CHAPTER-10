@@ -11,7 +11,7 @@ import { RiCoinFill } from 'react-icons/ri';
 import { from } from 'form-data';
 
 // import dispatch and action (Redux)
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { removeAuth } from '../../features/authentication/authenticationSlice'
 
 
@@ -21,11 +21,15 @@ function Navhome() {
     // INISIASI STATE UNTUK DATA PROFILE
     const [username, setUsername] = useState('');
     const [point, setPoint] = useState(null);
-    // Put dispatch into variable
+    // Put useDispatch and into variable
     const dispatch = useDispatch();
 
+    // Put authentication store's data into variable
+    const authId = useSelector(state => state.authentication.id)
+
     useEffect(() => {
-        fetch("http://localhost:4000/api/users/1")
+        
+        fetch(`http://localhost:4000/api/users/${authId}`)
             .then(res => res.json())
             .then(
                 (res) => {
