@@ -74,7 +74,8 @@ function Profile() {
             const result = await axios.post('http://localhost:4000/api/update/1', {
                 name: name,
                 username: username,
-                email: email
+                email: email,
+                social: social,
             });
 
 
@@ -187,7 +188,7 @@ function Profile() {
                                 </div>
                                 <div className="mb-3">
                                     <label className="form-label text-black">Social Media URL</label>
-                                    <input type="text" className="form-control" id="social" aria-describedby="username" value={social} readOnly />
+                                    <input type="text" className="form-control" id="social" aria-describedby="social" value={social} readOnly />
                                 </div>
                                 <div className="mb-3">
                                     <label className='form-label text-black'>About Me</label>
@@ -230,10 +231,6 @@ function Profile() {
                             <label className='form-label text-black'>About Me</label>
                             <textarea className="form-control form-sizing" id="exampleFormControlTextarea1" rows="3"></textarea>
                         </div>
-                        {/* <div className='center'>
-                            <Button type="submit" className="btn btn-danger">Submit</Button>
-                            <Button className='buttonSumbit btn-dark btn-modal' onClick={closeModal}>Close</Button>
-                        </div> */}
                         <Modal.Footer >
                             <Button type="submit" className="btn btn-danger">Submit</Button>
                             <Button className='buttonSumbit btn-dark btn-modal' onClick={closeModal}>Close</Button>
