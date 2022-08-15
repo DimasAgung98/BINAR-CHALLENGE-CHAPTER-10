@@ -187,7 +187,7 @@ function Profile() {
                                     <input type="email" className="form-control" id="email" aria-describedby="emailHelp" value={email} readOnly />
                                 </div>
                                 <div className="mb-3">
-                                    <label className="form-label text-black">Social Media URL</label>
+                                    <label className="form-label text-black">Social Media</label>
                                     <input type="text" className="form-control" id="social" aria-describedby="social" value={social} readOnly />
                                 </div>
                                 <div className="mb-3">
