@@ -7,14 +7,19 @@ import Navhome from '../components/HomePage/Navhome';
 import ListGame from '../components/listGame/Listgame';
 import Sidebar from '../components/HomePage/Sidebar';
 import Footer from "../components/global/Footer";
+// Import UseSelector from Redux to detect Store's data
+import { useSelector } from 'react-redux'
 
 function HomePage() {
+
     const router = useRouter()
+    const authId = useSelector(state => state.authentication.id)
+
     useEffect(() => {
-        const isAuthenticated = localStorage.getItem('isAuthenticated');
+        // const isAuthenticated = localStorage.getItem('isAuthenticated');
         window.scrollTo(0, 0)
 
-        if (isAuthenticated) {
+        if (authId != "") {
             // router.push('/home');
         } else {
             Swal.fire({

@@ -11,6 +11,8 @@ import Swal from 'sweetalert2';
 import { FaInstagram, FaTwitter, FaTiktok, FaFacebook } from 'react-icons/fa';
 import dummy from '../../public/uploaddummy.png';
 import defaultprofile from '../../public/profile-dummy.png';
+// Import Redux useSelector
+import { useSelector } from 'react-redux'
 
 function Profile() {
     const [show, setShow] = useState();
@@ -33,10 +35,11 @@ function Profile() {
     const [email, setEmail] = useState('');
     const [social, setSocial] = useState('');
 
-
+    // Put authentication store's data into variable
+    const authId = useSelector(state => state.authentication.id)
 
     useEffect(() => {
-        fetch("http://localhost:4000/api/users/1")
+        fetch(`http://localhost:4000/api/users/${authId}`)
             .then(res => res.json())
             .then(
                 (res) => {
@@ -71,7 +74,7 @@ function Profile() {
         e.preventDefault();
 
         try {
-            const result = await axios.post('http://localhost:4000/api/update/1', {
+            const result = await axios.post(`http://localhost:4000/api/update/${authId}`, {
                 name: name,
                 username: username,
                 email: email,
