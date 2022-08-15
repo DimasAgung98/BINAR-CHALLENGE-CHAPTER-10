@@ -20,15 +20,18 @@ import '../styles/RpsGame.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // IMPORT REDUX
 import { Provider } from 'react-redux';
-import store from '../app/store';
+import { PersistGate } from 'redux-persist/integration/react';
+import { store, persistor } from '../app/store';
 //IMPORT AOS
 import 'aos/dist/aos.css';
 
 function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>
-      <HeadContent />
-      <Component {...pageProps} />
+      <PersistGate persistor={persistor}>
+        <HeadContent />
+        <Component {...pageProps} />
+      </PersistGate>
     </Provider>
   )
 }
