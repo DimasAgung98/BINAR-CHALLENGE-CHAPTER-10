@@ -8,7 +8,7 @@ function Table() {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:4000/api/users")
+        fetch("https://teamone-server.herokuapp.com/api/users")
             .then(res => res.json())
             .then(
                 (result) => {

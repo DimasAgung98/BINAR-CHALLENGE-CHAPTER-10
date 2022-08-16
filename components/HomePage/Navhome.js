@@ -28,8 +28,8 @@ function Navhome() {
     const authId = useSelector(state => state.authentication.id)
 
     useEffect(() => {
-
-        fetch(`http://localhost:4000/api/users/${authId}`)
+    
+        fetch(`https://teamone-server.herokuapp.com/api/users/${authId}`)
             .then(res => res.json())
             .then(
                 (res) => {
