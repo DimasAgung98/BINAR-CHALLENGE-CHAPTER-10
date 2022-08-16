@@ -23,7 +23,7 @@ function ForgotPassword() {
             })
 
         } else {
-            const result = axios.put('http://localhost:4000/api/forgot-password', { email: email })
+            const result = axios.put('http://teamone-server.herokuapp.com/api/forgot-password', { email: email })
             Swal.fire({
                 icon: 'success',
                 title: 'SUCCESS',
