@@ -58,7 +58,7 @@ function Profile() {
                     setError(error);
                 }
             )
-    }, [])
+    }, [authId])
 
     useEffect(() => {
         if (!photo) {
