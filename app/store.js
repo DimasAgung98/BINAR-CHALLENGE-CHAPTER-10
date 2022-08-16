@@ -1,6 +1,6 @@
 // Import Redux
 import { configureStore } from '@reduxjs/toolkit';
-import authenticationReducer from '../features/authentication/authenticationSlice'
+import authenticationReducer from '../features/authentication/authenticationSlice';
 // Import redux-persist
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
@@ -15,7 +15,7 @@ const persistedAuthReducer = persistReducer(persistConfig, authenticationReducer
 
 const store = configureStore({
   reducer: {
-    authentication : persistedAuthReducer
+    authentication: persistedAuthReducer
   },
 });
 
