@@ -30,7 +30,7 @@ function HomePage() {
             })
             router.push('/login')
         }
-    }, [router])
+    }, [router, authId])
 
     return (
         <>

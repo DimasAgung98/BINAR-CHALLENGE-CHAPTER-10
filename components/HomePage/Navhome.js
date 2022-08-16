@@ -28,7 +28,7 @@ function Navhome() {
     const authId = useSelector(state => state.authentication.id)
 
     useEffect(() => {
-        
+    
         fetch(`https://teamone-server.herokuapp.com/api/users/${authId}`)
             .then(res => res.json())
             .then(
@@ -44,7 +44,7 @@ function Navhome() {
                     setError(error);
                 }
             )
-    }, [])
+    }, [authId])
 
     const router = useRouter()
     const handleLogout = async (e) => {
