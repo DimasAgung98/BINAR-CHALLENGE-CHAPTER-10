@@ -26,7 +26,7 @@ function FormLogin() {
         e.preventDefault();
 
         try {
-            const result = await axios.post('http://teamone-server.herokuapp.com/api/login', {
+            const result = await axios.post('https://teamone-server.herokuapp.com/api/login', {
                 username: username,
                 password: password
             });

@@ -40,7 +40,7 @@ function Profile() {
     const authId = useSelector(state => state.authentication.id)
 
     useEffect(() => {
-        fetch(`http://teamone-server.herokuapp.com/api/users/${authId}`)
+        fetch(`https://teamone-server.herokuapp.com/api/users/${authId}`)
             .then(res => res.json())
             .then(
                 (res) => {
@@ -76,7 +76,7 @@ function Profile() {
         e.preventDefault();
 
         try {
-            const result = await axios.post(`http://teamone-server.herokuapp.com/api/update/${authId}`, {
+            const result = await axios.post(`https://teamone-server.herokuapp.com/api/update/${authId}`, {
                 name: name,
                 username: username,
                 email: email,
@@ -136,7 +136,7 @@ function Profile() {
                 confirmButtonColor: '#dc3545',
             })
         } else {
-            const result = axios.post('http://teamone-server.herokuapp.com/api/upload', form)
+            const result = axios.post('https://teamone-server.herokuapp.com/api/upload', form)
             Swal.fire({
                 icon: 'success',
                 title: 'SUCCESS',

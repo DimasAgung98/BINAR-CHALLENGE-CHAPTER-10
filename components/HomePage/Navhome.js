@@ -29,7 +29,7 @@ function Navhome() {
 
     useEffect(() => {
         
-        fetch(`http://teamone-server.herokuapp.com/api/users/${authId}`)
+        fetch(`https://teamone-server.herokuapp.com/api/users/${authId}`)
             .then(res => res.json())
             .then(
                 (res) => {

@@ -16,7 +16,7 @@ function FormRegister() {
         e.preventDefault();
 
         try {
-            const result = await axios.post('http://teamone-server.herokuapp.com/api/register', {
+            const result = await axios.post('https://teamone-server.herokuapp.com/api/register', {
                 name: name,
                 username: username,
                 email: email,
