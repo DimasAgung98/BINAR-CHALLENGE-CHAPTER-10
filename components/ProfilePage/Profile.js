@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import axios from 'axios';
 import Image from 'next/image';
 import FormData from 'form-data';
@@ -10,6 +11,7 @@ import Swal from 'sweetalert2';
 //IMPORT ICONS
 import { FaInstagram, FaTwitter, FaTiktok, FaFacebook } from 'react-icons/fa';
 import dummy from '../../public/uploaddummy.png';
+import Rps from '../../public/rps.png';
 import defaultprofile from '../../public/profile-dummy.png';
 // Import Redux useSelector
 import { useSelector } from 'react-redux'
@@ -165,8 +167,11 @@ function Profile() {
                                 <li><a className='facebook' href='https://www.facebook.com/'><FaFacebook /></a></li>
                             </ul>
                         </div>
-                        <div className='row'>
-
+                        <div className='row text-center'>
+                            <h4>GAME HISTORY</h4><hr></hr>
+                            <div>
+                                <Image src={Rps} className="img-fluid" alt="game" />
+                            </div>
                         </div>
                     </div>
                     <div className='col-9 pt-5 px-5 bg-white'>
