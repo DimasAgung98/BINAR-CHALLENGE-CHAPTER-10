@@ -22,6 +22,18 @@ function Table() {
             )
     }, [])
 
+    const TableDatas = items?.data?.map((item, i) => (
+            <tr className='text'>
+                <th>{i + 1}</th>
+                <th>{item.id}</th>
+                <th>{item.username}</th>
+                <th>{item.email}</th>
+                <th>{item.point}</th>
+                <th><Link href='/home/profile'><Button color='danger' outline>Profile</Button></Link></th>
+            </tr>
+        )
+    )
+
     if (error || !isLoaded) {
         return (
             <>
@@ -65,20 +77,7 @@ function Table() {
                                     </tr>
                                 </thead>
                                 <tbody className='text-center'>
-                                    {
-                                        items.data.map(
-                                            (item, i) => (
-                                                <tr className='text'>
-                                                    <th>{i + 1}</th>
-                                                    <th>{item.id}</th>
-                                                    <th>{item.username}</th>
-                                                    <th>{item.email}</th>
-                                                    <th>{item.point}</th>
-                                                    <th><Link href='/home/profile'><Button color='danger' outline>Profile</Button></Link></th>
-                                                </tr>
-                                            )
-                                        )
-                                    }
+                                    {TableDatas}
                                 </tbody>
                             </table>
                         </div>
