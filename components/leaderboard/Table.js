@@ -65,7 +65,7 @@ function Table() {
                                     </tr>
                                 </thead>
                                 <tbody className='text-center'>
-                                    {/* {
+                                    {
                                         items.data.map(
                                             (item, i) => (
                                                 <tr className='text'>
@@ -73,12 +73,12 @@ function Table() {
                                                     <th>{item.id}</th>
                                                     <th>{item.username}</th>
                                                     <th>{item.email}</th>
-                                                    <th></th>
+                                                    <th>{item.point}</th>
                                                     <th><Link href='/home/profile'><Button color='danger' outline>Profile</Button></Link></th>
                                                 </tr>
                                             )
                                         )
-                                    } */}
+                                    }
                                 </tbody>
                             </table>
                         </div>
