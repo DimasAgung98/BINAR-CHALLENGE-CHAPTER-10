@@ -23,7 +23,7 @@ function Table() {
     }, [])
 
     const TableDatas = items?.data?.map((item, i) => (
-            <tr className='text'>
+            <tr key= {item.id} className='text'>
                 <th>{i + 1}</th>
                 <th>{item.id}</th>
                 <th>{item.username}</th>
