@@ -1,6 +1,7 @@
 // Import Redux
 import { configureStore } from '@reduxjs/toolkit';
 import authenticationReducer from '../features/authentication/authenticationSlice';
+import gameHistoryReducer from '../features/gameHistory/gameHistorySlice';
 // Import redux-persist
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
@@ -12,10 +13,12 @@ const persistConfig = {
 }
 
 const persistedAuthReducer = persistReducer(persistConfig, authenticationReducer)
+const persistedGameHistoryReducer = persistReducer(persistConfig, gameHistoryReducer)
 
 const store = configureStore({
   reducer: {
-    authentication: persistedAuthReducer
+    authentication: persistedAuthReducer,
+    gameHistory: persistedGameHistoryReducer
   },
 });
 
