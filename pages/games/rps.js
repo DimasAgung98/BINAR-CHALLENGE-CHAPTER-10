@@ -13,7 +13,17 @@ import Footer from '../../components/global/Footer';
 import Navhome from '../../components/HomePage/Navhome';
 import Table from '../../components/leaderboard/Table';
 
+// import dispatch and action (Redux)
+import { useDispatch, useSelector } from 'react-redux'
+import { addGameHistory } from '../../features/gameHistory/gameHistorySlice' 
+
 function Rps() {
+
+    // Put useDispatch and into variable
+    const dispatch = useDispatch();
+    // Put gameHistory store's data into variable
+    const gameHistory = useSelector(state => state.gameHistory.gameId)
+
     const router = useRouter()
     useEffect(() => {
         const isAuthenticated = localStorage.getItem('isAuthenticated');
@@ -31,6 +41,29 @@ function Rps() {
             router.push('/login')
         }
     }, [router])
+
+    // DETECTOR ID GAME
+    let playedGameDetector = ''
+
+    if(gameHistory.includes(1)){
+        playedGameDetector = <div>You've Played This Game</div> 
+    }
+
+    // ONCLICK 'PLAY NOW'
+    const addGameIdToHistory = () => {
+        console.log('fungsi addGameIdToHistory dijalankan')
+
+        // put 1 (RPS Game Id) to gameHistory Store if id not detected
+        if(!gameHistory.includes(1)) {
+            dispatch(addGameHistory(1))
+            console.log('id belum ada, dan sudah ditambahkan ke store')
+        }
+        
+        // direct to game
+        router.push('/play/rock-paper-scissors')
+        console.log('directing to RPS Game Page')
+    }
+
     return (
         <>
             <Head>
@@ -41,12 +74,13 @@ function Rps() {
             <div className='container-fluid bg-white'>
                 <div className='row'>
                     <div data-aos='fade-right' className='col-6 px-5 py-5 game-text'>
+                        { playedGameDetector }
                         <h1 className='text-game-title'>ROCK PAPER SCISSORS</h1>
                         <p>A classic two-person game. Players start each round by saying, “rock, paper, scissors, shoot!” On “shoot,” each player holds out their fist for rock, flat hand for paper, or their index and middle finger for scissors. Rock crushes scissors, scissors cut paper, and paper covers rock. See who wins each round!</p>
                         <div>
-                            <Link href='/play/rock-paper-scissors'><Button color="warning" outline size="md">
-                                PLAY NOW
-                            </Button></Link>
+                            <Button onClick={addGameIdToHistory} color="warning" outline size="md">
+                                 PLAY NOW
+                            </Button>
                         </div>
                     </div>
                     <div data-aos='fade-left' className='col-6 px-5 py-5 img-game'>

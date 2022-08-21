@@ -13,6 +13,7 @@ import { from } from 'form-data';
 // import dispatch and action (Redux)
 import { useDispatch, useSelector } from 'react-redux'
 import { removeAuth } from '../../features/authentication/authenticationSlice'
+import { removeGameHistory } from '../../features/gameHistory/gameHistorySlice' 
 
 
 function Navhome() {
@@ -59,6 +60,7 @@ function Navhome() {
         router.push('/')
         localStorage.clear('isAuthenticated');
         dispatch(removeAuth());
+        dispatch(removeGameHistory());
     }
 
     const openProfile = async (e) => {
