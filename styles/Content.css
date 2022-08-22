@@ -56,7 +56,7 @@
 }
 
 .played-game {
-    outline: red;
+    color: red;
     text-decoration: underline;
 }
 
