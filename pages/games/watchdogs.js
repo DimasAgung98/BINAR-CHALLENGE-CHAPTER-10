@@ -13,7 +13,20 @@ import Footer from '../../components/global/Footer';
 import Navhome from '../../components/HomePage/Navhome';
 import Table from '../../components/leaderboard/Table';
 
+// import dispatch and action (Redux)
+import { useDispatch, useSelector } from 'react-redux'
+import { addGameHistory } from '../../features/gameHistory/gameHistorySlice' 
+
 const Watchdogs = () => {
+
+    // Put useDispatch and into variable
+    const dispatch = useDispatch();
+    // Put gameHistory store's data into variable
+    const gameHistory = useSelector(state => state.gameHistory.gameId)    
+    // put game id into variable
+    const pageGameId = 5
+
+
     const router = useRouter()
     useEffect(() => {
         const isAuthenticated = localStorage.getItem('isAuthenticated');
@@ -31,6 +44,28 @@ const Watchdogs = () => {
             router.push('/login')
         }
     }, [router])
+      
+    // DETECTOR ID GAME
+    let playedGameDetector = ''
+
+    if(gameHistory.includes(pageGameId)){
+        playedGameDetector = <div>You've Played This Game</div> 
+    }
+
+    // ONCLICK 'PLAY NOW'
+    const addGameIdToHistory = () => {
+        console.log('fungsi addGameIdToHistory dijalankan')
+
+        // add Game ID to gameHistory Store if id not detected
+        if(!gameHistory.includes(pageGameId)) {
+            dispatch(addGameHistory(pageGameId))
+            console.log('id belum ada, dan sudah ditambahkan ke store')
+        }
+        
+        // direct to game
+            // theres no game yet
+    }
+
     return (
         <>
             <Head>

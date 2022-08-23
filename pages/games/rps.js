@@ -53,7 +53,7 @@ function Rps() {
     const addGameIdToHistory = () => {
         console.log('fungsi addGameIdToHistory dijalankan')
 
-        // put 1 (RPS Game Id) to gameHistory Store if id not detected
+        // add Game ID to gameHistory Store if id not detected
         if(!gameHistory.includes(1)) {
             dispatch(addGameHistory(1))
             console.log('id belum ada, dan sudah ditambahkan ke store')
