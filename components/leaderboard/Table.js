@@ -23,15 +23,15 @@ function Table() {
     }, [])
 
     const TableDatas = items?.data?.map((item, i) => (
-        <tr className='text' key={item.id}>
-            <th>{i + 1}</th>
-            <th>{item.id}</th>
-            <th>{item.username}</th>
-            <th>{item.email}</th>
-            <th>{item.point}</th>
-            <th><Link href='/home/profile'><Button color='danger' outline>Profile</Button></Link></th>
-        </tr>
-    )
+            <tr key= {item.id} className='text'>
+                <th>{i + 1}</th>
+                <th>{item.id}</th>
+                <th>{item.username}</th>
+                <th>{item.email}</th>
+                <th>{item.point}</th>
+                <th><Link href='/home/profile'><Button color='danger' outline>Profile</Button></Link></th>
+            </tr>
+        )
     )
 
     if (error || !isLoaded) {
