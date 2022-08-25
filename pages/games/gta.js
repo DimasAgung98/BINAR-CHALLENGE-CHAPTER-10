@@ -47,7 +47,7 @@ const Gta = () => {
     let playedGameDetector = ''
 
     if(gameHistory.includes(2)){
-        playedGameDetector = <div>You've Played This Game</div> 
+        playedGameDetector = <div className='played-game'>You&apos;ve Played This Game</div> 
     }
 
     // ONCLICK 'PLAY NOW'

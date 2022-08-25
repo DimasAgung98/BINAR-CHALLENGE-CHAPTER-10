@@ -22,9 +22,7 @@ const Watchdogs = () => {
     // Put useDispatch and into variable
     const dispatch = useDispatch();
     // Put gameHistory store's data into variable
-    const gameHistory = useSelector(state => state.gameHistory.gameId)    
-    // put game id into variable
-    const pageGameId = 5
+    const gameHistory = useSelector(state => state.gameHistory.gameId)
 
 
     const router = useRouter()
@@ -48,8 +46,8 @@ const Watchdogs = () => {
     // DETECTOR ID GAME
     let playedGameDetector = ''
 
-    if(gameHistory.includes(pageGameId)){
-        playedGameDetector = <div>You've Played This Game</div> 
+    if(gameHistory.includes(5)){
+        playedGameDetector = <div className='played-game'>You&apos;ve Played This Game</div> 
     }
 
     // ONCLICK 'PLAY NOW'
@@ -57,8 +55,8 @@ const Watchdogs = () => {
         console.log('fungsi addGameIdToHistory dijalankan')
 
         // add Game ID to gameHistory Store if id not detected
-        if(!gameHistory.includes(pageGameId)) {
-            dispatch(addGameHistory(pageGameId))
+        if(!gameHistory.includes(5)) {
+            dispatch(addGameHistory(5))
             console.log('id belum ada, dan sudah ditambahkan ke store')
         }
         
@@ -76,11 +74,12 @@ const Watchdogs = () => {
             <div className='container-fluid bg-white'>
                 <div className='row'>
                     <div data-aos='fade-right' className='col-6 px-5 py-5 game-text'>
+                        { playedGameDetector }
                         <h1 className='text-game-title'>WATCH DOGS</h1>
                         <p>Play as Marcus Holloway, a brilliant young hacker living in the birthplace of the tech revolution, the San Francisco Bay Area. In Watch Dogs, this system is called the Central Operating System (CTOS) and it controls almost every piece of the citys technology and holds key information on all of the city residents.</p>
                         <div>
-                            <Button color="warning" outline size="md">
-                                PLAY NOW
+                            <Button onClick={addGameIdToHistory} color="warning" outline size="md">
+                                 PLAY NOW
                             </Button>
                         </div>
                     </div>

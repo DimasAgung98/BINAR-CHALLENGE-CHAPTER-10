@@ -23,9 +23,7 @@ const Fallguys = () => {
     // Put useDispatch and into variable
     const dispatch = useDispatch();
     // Put gameHistory store's data into variable
-    const gameHistory = useSelector(state => state.gameHistory.gameId)    
-    // put game id into variable
-    const pageGameId = 3
+    const gameHistory = useSelector(state => state.gameHistory.gameId)
 
 
     const router = useRouter()
@@ -49,8 +47,8 @@ const Fallguys = () => {
     // DETECTOR ID GAME
     let playedGameDetector = ''
 
-    if(gameHistory.includes(pageGameId)){
-        playedGameDetector = <div>You've Played This Game</div> 
+    if(gameHistory.includes(3)){
+        playedGameDetector = <div className='played-game'>You&apos;ve Played This Game</div> 
     }
 
     // ONCLICK 'PLAY NOW'
@@ -58,8 +56,8 @@ const Fallguys = () => {
         console.log('fungsi addGameIdToHistory dijalankan')
 
         // add Game ID to gameHistory Store if id not detected
-        if(!gameHistory.includes(pageGameId)) {
-            dispatch(addGameHistory(pageGameId))
+        if(!gameHistory.includes(3)) {
+            dispatch(addGameHistory(3))
             console.log('id belum ada, dan sudah ditambahkan ke store')
         }
         
@@ -77,11 +75,12 @@ const Fallguys = () => {
             <div className='container-fluid bg-white'>
                 <div className='row'>
                     <div data-aos='fade-right' className='col-6 px-5 py-5 game-text'>
+                        { playedGameDetector }
                         <h1 className='text-game-title'>FALL GUYS</h1>
                         <p>Welcome to Fall Guys: Free for All! You are invited to dive and dodge your way to victory in the pantheon of clumsy. Rookie or pro? Solo or partied up? Fall Guys delivers ever-evolving, high-concentrated hilarity and fun!</p>
                         <div>
-                            <Button color="warning" outline size="md">
-                                PLAY NOW
+                            <Button onClick={addGameIdToHistory} color="warning" outline size="md">
+                                 PLAY NOW
                             </Button>
                         </div>
                     </div>

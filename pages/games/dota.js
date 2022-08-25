@@ -22,9 +22,7 @@ const Dota = () => {
     // Put useDispatch and into variable
     const dispatch = useDispatch();
     // Put gameHistory store's data into variable
-    const gameHistory = useSelector(state => state.gameHistory.gameId)    
-    // put game id into variable
-    const pageGameId = 4
+    const gameHistory = useSelector(state => state.gameHistory.gameId)
 
 
     const router = useRouter()
@@ -48,8 +46,8 @@ const Dota = () => {
     // DETECTOR ID GAME
     let playedGameDetector = ''
 
-    if(gameHistory.includes(pageGameId)){
-        playedGameDetector = <div>You've Played This Game</div> 
+    if(gameHistory.includes(4)){
+        playedGameDetector = <div className='played-game'>You&apos;ve Played This Game</div> 
     }
 
     // ONCLICK 'PLAY NOW'
@@ -57,8 +55,8 @@ const Dota = () => {
         console.log('fungsi addGameIdToHistory dijalankan')
 
         // add Game ID to gameHistory Store if id not detected
-        if(!gameHistory.includes(pageGameId)) {
-            dispatch(addGameHistory(pageGameId))
+        if(!gameHistory.includes(4)) {
+            dispatch(addGameHistory(4))
             console.log('id belum ada, dan sudah ditambahkan ke store')
         }
         
@@ -76,11 +74,12 @@ const Dota = () => {
             <div className='container-fluid bg-white'>
                 <div className='row'>
                     <div data-aos='fade-right' className='col-6 px-5 py-5 game-text'>
+                        { playedGameDetector }
                         <h1 className='text-game-title'>DOTA 2</h1>
                         <p>Every day, millions of players worldwide enter the battle as one of over a hundred Dota Heroes in a 5v5 team clash. Dota is the deepest multi-player action RTS game ever made and there always a new strategy or tactic to discover. Its completely free to play and always will be start defending your ancient now.</p>
                         <div>
-                            <Button color="warning" outline size="md">
-                                PLAY NOW
+                            <Button onClick={addGameIdToHistory} color="warning" outline size="md">
+                                 PLAY NOW
                             </Button>
                         </div>
                     </div>

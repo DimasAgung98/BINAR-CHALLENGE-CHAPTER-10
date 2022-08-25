@@ -22,9 +22,7 @@ const Cyberpunk = () => {
     // Put useDispatch and into variable
     const dispatch = useDispatch();
     // Put gameHistory store's data into variable
-    const gameHistory = useSelector(state => state.gameHistory.gameId)    
-    // put game id into variable
-    const pageGameId = 7
+    const gameHistory = useSelector(state => state.gameHistory.gameId)
 
 
     const router = useRouter()
@@ -48,8 +46,8 @@ const Cyberpunk = () => {
     // DETECTOR ID GAME
     let playedGameDetector = ''
 
-    if(gameHistory.includes(pageGameId)){
-        playedGameDetector = <div>You've Played This Game</div> 
+    if(gameHistory.includes(7)){
+        playedGameDetector = <div className='played-game'>You&apos;ve Played This Game</div> 
     }
 
     // ONCLICK 'PLAY NOW'
@@ -57,8 +55,8 @@ const Cyberpunk = () => {
         console.log('fungsi addGameIdToHistory dijalankan')
 
         // add Game ID to gameHistory Store if id not detected
-        if(!gameHistory.includes(pageGameId)) {
-            dispatch(addGameHistory(pageGameId))
+        if(!gameHistory.includes(7)) {
+            dispatch(addGameHistory(7))
             console.log('id belum ada, dan sudah ditambahkan ke store')
         }
         
@@ -76,11 +74,12 @@ const Cyberpunk = () => {
             <div className='container-fluid bg-white'>
                 <div className='row'>
                     <div data-aos='fade-right' className='col-6 px-5 py-5 game-text'>
+                        { playedGameDetector }
                         <h1 className='text-game-title'>CYBERPUNK</h1>
                         <p>Cyberpunk 2077 is an open-world, action-adventure RPG set in the megalopolis of Night City, where you play as a cyberpunk mercenary wrapped up in a do-or-die fight for survival. Improved and featuring all-new free additional content, customize your character and playstyle as you take on jobs, build a reputation, and unlock upgrades.</p>
                         <div>
-                            <Button color="warning" outline size="md">
-                                PLAY NOW
+                            <Button onClick={addGameIdToHistory} color="warning" outline size="md">
+                                 PLAY NOW
                             </Button>
                         </div>
                     </div>

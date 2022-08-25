@@ -46,7 +46,7 @@ function Rps() {
     let playedGameDetector = ''
 
     if(gameHistory.includes(1)){
-        playedGameDetector = <div className='played-game'>You've Played This Game</div> 
+        playedGameDetector = <div className='played-game'>You&apos;ve Played This Game</div> 
     }
 
     // ONCLICK 'PLAY NOW'
