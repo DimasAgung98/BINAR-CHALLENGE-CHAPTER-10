@@ -55,6 +55,11 @@
     background-color: #292b2c !important;
 }
 
+.played-game {
+    color: red;
+    text-decoration: underline;
+}
+
 #top-players {
     color: orange !important;
 }

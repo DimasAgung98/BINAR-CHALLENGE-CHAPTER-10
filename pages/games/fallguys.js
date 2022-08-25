@@ -13,7 +13,19 @@ import Footer from '../../components/global/Footer';
 import Navhome from '../../components/HomePage/Navhome';
 import Table from '../../components/leaderboard/Table';
 
+// import dispatch and action (Redux)
+import { useDispatch, useSelector } from 'react-redux'
+import { addGameHistory } from '../../features/gameHistory/gameHistorySlice' 
+
+
 const Fallguys = () => {
+
+    // Put useDispatch and into variable
+    const dispatch = useDispatch();
+    // Put gameHistory store's data into variable
+    const gameHistory = useSelector(state => state.gameHistory.gameId)
+
+
     const router = useRouter()
     useEffect(() => {
         const isAuthenticated = localStorage.getItem('isAuthenticated');
@@ -31,6 +43,28 @@ const Fallguys = () => {
             router.push('/login')
         }
     }, [router])
+    
+    // DETECTOR ID GAME
+    let playedGameDetector = ''
+
+    if(gameHistory.includes(3)){
+        playedGameDetector = <div className='played-game'>You&apos;ve Played This Game</div> 
+    }
+
+    // ONCLICK 'PLAY NOW'
+    const addGameIdToHistory = () => {
+        console.log('fungsi addGameIdToHistory dijalankan')
+
+        // add Game ID to gameHistory Store if id not detected
+        if(!gameHistory.includes(3)) {
+            dispatch(addGameHistory(3))
+            console.log('id belum ada, dan sudah ditambahkan ke store')
+        }
+        
+        // direct to game
+            // theres no game yet
+    }
+
     return (
         <>
             <Head>
@@ -41,11 +75,12 @@ const Fallguys = () => {
             <div className='container-fluid bg-white'>
                 <div className='row'>
                     <div data-aos='fade-right' className='col-6 px-5 py-5 game-text'>
+                        { playedGameDetector }
                         <h1 className='text-game-title'>FALL GUYS</h1>
                         <p>Welcome to Fall Guys: Free for All! You are invited to dive and dodge your way to victory in the pantheon of clumsy. Rookie or pro? Solo or partied up? Fall Guys delivers ever-evolving, high-concentrated hilarity and fun!</p>
                         <div>
-                            <Button color="warning" outline size="md">
-                                PLAY NOW
+                            <Button onClick={addGameIdToHistory} color="warning" outline size="md">
+                                 PLAY NOW
                             </Button>
                         </div>
                     </div>

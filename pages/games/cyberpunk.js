@@ -13,7 +13,18 @@ import Footer from '../../components/global/Footer';
 import Navhome from '../../components/HomePage/Navhome';
 import Table from '../../components/leaderboard/Table';
 
+// import dispatch and action (Redux)
+import { useDispatch, useSelector } from 'react-redux'
+import { addGameHistory } from '../../features/gameHistory/gameHistorySlice' 
+
 const Cyberpunk = () => {
+    
+    // Put useDispatch and into variable
+    const dispatch = useDispatch();
+    // Put gameHistory store's data into variable
+    const gameHistory = useSelector(state => state.gameHistory.gameId)
+
+
     const router = useRouter()
     useEffect(() => {
         const isAuthenticated = localStorage.getItem('isAuthenticated');
@@ -31,6 +42,28 @@ const Cyberpunk = () => {
             router.push('/login')
         }
     }, [router])
+     
+    // DETECTOR ID GAME
+    let playedGameDetector = ''
+
+    if(gameHistory.includes(7)){
+        playedGameDetector = <div className='played-game'>You&apos;ve Played This Game</div> 
+    }
+
+    // ONCLICK 'PLAY NOW'
+    const addGameIdToHistory = () => {
+        console.log('fungsi addGameIdToHistory dijalankan')
+
+        // add Game ID to gameHistory Store if id not detected
+        if(!gameHistory.includes(7)) {
+            dispatch(addGameHistory(7))
+            console.log('id belum ada, dan sudah ditambahkan ke store')
+        }
+        
+        // direct to game
+            // theres no game yet
+    }
+
     return (
         <>
             <Head>
@@ -41,11 +74,12 @@ const Cyberpunk = () => {
             <div className='container-fluid bg-white'>
                 <div className='row'>
                     <div data-aos='fade-right' className='col-6 px-5 py-5 game-text'>
+                        { playedGameDetector }
                         <h1 className='text-game-title'>CYBERPUNK</h1>
                         <p>Cyberpunk 2077 is an open-world, action-adventure RPG set in the megalopolis of Night City, where you play as a cyberpunk mercenary wrapped up in a do-or-die fight for survival. Improved and featuring all-new free additional content, customize your character and playstyle as you take on jobs, build a reputation, and unlock upgrades.</p>
                         <div>
-                            <Button color="warning" outline size="md">
-                                PLAY NOW
+                            <Button onClick={addGameIdToHistory} color="warning" outline size="md">
+                                 PLAY NOW
                             </Button>
                         </div>
                     </div>

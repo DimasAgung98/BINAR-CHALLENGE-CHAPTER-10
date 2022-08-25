@@ -13,7 +13,18 @@ import Footer from '../../components/global/Footer';
 import Navhome from '../../components/HomePage/Navhome';
 import Table from '../../components/leaderboard/Table';
 
+// import dispatch and action (Redux)
+import { useDispatch, useSelector } from 'react-redux'
+import { addGameHistory } from '../../features/gameHistory/gameHistorySlice' 
+
 const Valo = () => {
+    
+    // Put useDispatch and into variable
+    const dispatch = useDispatch();
+    // Put gameHistory store's data into variable
+    const gameHistory = useSelector(state => state.gameHistory.gameId)
+
+
     const router = useRouter()
     useEffect(() => {
         const isAuthenticated = localStorage.getItem('isAuthenticated');
@@ -31,6 +42,28 @@ const Valo = () => {
             router.push('/login')
         }
     }, [router])
+      
+    // DETECTOR ID GAME
+    let playedGameDetector = ''
+
+    if(gameHistory.includes(6)){
+        playedGameDetector = <div className='played-game'>You&apos;ve Played This Game</div> 
+    }
+
+    // ONCLICK 'PLAY NOW'
+    const addGameIdToHistory = () => {
+        console.log('fungsi addGameIdToHistory dijalankan')
+
+        // add Game ID to gameHistory Store if id not detected
+        if(!gameHistory.includes(6)) {
+            dispatch(addGameHistory(6))
+            console.log('id belum ada, dan sudah ditambahkan ke store')
+        }
+        
+        // direct to game
+            // theres no game yet
+    }
+
     return (
         <>
             <Head>
@@ -41,11 +74,12 @@ const Valo = () => {
             <div className='container-fluid bg-white'>
                 <div className='row'>
                     <div data-aos='fade-right' className='col-6 px-5 py-5 game-text'>
+                        { playedGameDetector }
                         <h1 className='text-game-title'>VALORANT</h1>
                         <p>Blend your style and experience on a global, competitive stage. You have 13 rounds to attack and defend your side using sharp gunplay and tactical abilities. And, with one life per-round, you need to think faster than your opponent if you want to survive.</p>
                         <div>
-                            <Button color="warning" outline size="md">
-                                PLAY NOW
+                            <Button onClick={addGameIdToHistory} color="warning" outline size="md">
+                                 PLAY NOW
                             </Button>
                         </div>
                     </div>

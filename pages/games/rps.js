@@ -46,14 +46,14 @@ function Rps() {
     let playedGameDetector = ''
 
     if(gameHistory.includes(1)){
-        playedGameDetector = <div>You've Played This Game</div> 
+        playedGameDetector = <div className='played-game'>You&apos;ve Played This Game</div> 
     }
 
     // ONCLICK 'PLAY NOW'
     const addGameIdToHistory = () => {
         console.log('fungsi addGameIdToHistory dijalankan')
 
-        // put 1 (RPS Game Id) to gameHistory Store if id not detected
+        // add Game ID to gameHistory Store if id not detected
         if(!gameHistory.includes(1)) {
             dispatch(addGameHistory(1))
             console.log('id belum ada, dan sudah ditambahkan ke store')

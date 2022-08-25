@@ -13,7 +13,18 @@ import Footer from '../../components/global/Footer';
 import Navhome from '../../components/HomePage/Navhome';
 import Table from '../../components/leaderboard/Table';
 
+// import dispatch and action (Redux)
+import { useDispatch, useSelector } from 'react-redux'
+import { addGameHistory } from '../../features/gameHistory/gameHistorySlice' 
+
 const Dota = () => {
+
+    // Put useDispatch and into variable
+    const dispatch = useDispatch();
+    // Put gameHistory store's data into variable
+    const gameHistory = useSelector(state => state.gameHistory.gameId)
+
+
     const router = useRouter()
     useEffect(() => {
         const isAuthenticated = localStorage.getItem('isAuthenticated');
@@ -31,6 +42,28 @@ const Dota = () => {
             router.push('/login')
         }
     }, [router])
+        
+    // DETECTOR ID GAME
+    let playedGameDetector = ''
+
+    if(gameHistory.includes(4)){
+        playedGameDetector = <div className='played-game'>You&apos;ve Played This Game</div> 
+    }
+
+    // ONCLICK 'PLAY NOW'
+    const addGameIdToHistory = () => {
+        console.log('fungsi addGameIdToHistory dijalankan')
+
+        // add Game ID to gameHistory Store if id not detected
+        if(!gameHistory.includes(4)) {
+            dispatch(addGameHistory(4))
+            console.log('id belum ada, dan sudah ditambahkan ke store')
+        }
+        
+        // direct to game
+            // theres no game yet
+    }
+
     return (
         <>
             <Head>
@@ -41,11 +74,12 @@ const Dota = () => {
             <div className='container-fluid bg-white'>
                 <div className='row'>
                     <div data-aos='fade-right' className='col-6 px-5 py-5 game-text'>
+                        { playedGameDetector }
                         <h1 className='text-game-title'>DOTA 2</h1>
                         <p>Every day, millions of players worldwide enter the battle as one of over a hundred Dota Heroes in a 5v5 team clash. Dota is the deepest multi-player action RTS game ever made and there always a new strategy or tactic to discover. Its completely free to play and always will be start defending your ancient now.</p>
                         <div>
-                            <Button color="warning" outline size="md">
-                                PLAY NOW
+                            <Button onClick={addGameIdToHistory} color="warning" outline size="md">
+                                 PLAY NOW
                             </Button>
                         </div>
                     </div>
