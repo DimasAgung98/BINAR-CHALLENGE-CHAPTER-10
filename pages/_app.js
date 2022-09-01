@@ -1,4 +1,5 @@
-import '../styles/globals.css'
+import '../styles/globals.css';
+import reportWebVitals from '../test/reportWebVitals';
 import HeadContent from "../components/global/Icon";
 //IMPORT GLOBAL STYLING
 import '../styles/Navbar.css';
@@ -35,5 +36,5 @@ function MyApp({ Component, pageProps }) {
     </Provider>
   )
 }
-
+reportWebVitals();
 export default MyApp

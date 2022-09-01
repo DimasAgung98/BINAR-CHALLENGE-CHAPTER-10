@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import Image from 'next/image';
+import React, { useRef, useEffect, useState } from 'react';
+import ReactPlayer from 'react-player';
 import Link from 'next/link';
 import Aos from 'aos';
 import { useRouter } from 'next/router';
@@ -14,11 +14,20 @@ import Navhome from '../../components/HomePage/Navhome';
 import Table from '../../components/leaderboard/Table';
 
 // import dispatch and action (Redux)
-import { useDispatch, useSelector } from 'react-redux'
-import { addGameHistory } from '../../features/gameHistory/gameHistorySlice' 
+import { useDispatch, useSelector } from 'react-redux';
+import { addGameHistory } from '../../features/gameHistory/gameHistorySlice';
+
+const sources = {
+    youtube: 'https://www.youtube.com/watch?v=8X2kIfS6fb8',
+}
 
 const Cyberpunk = () => {
-    
+    const ref = useRef();
+    const [source, setSource] = useState(sources.youtube);
+    const [playing, setPlaying] = useState(false);
+
+    const play = () => setPlaying(true);
+
     // Put useDispatch and into variable
     const dispatch = useDispatch();
     // Put gameHistory store's data into variable
@@ -42,12 +51,12 @@ const Cyberpunk = () => {
             router.push('/login')
         }
     }, [router])
-     
+
     // DETECTOR ID GAME
     let playedGameDetector = ''
 
-    if(gameHistory.includes(7)){
-        playedGameDetector = <div className='played-game'>You&apos;ve Played This Game</div> 
+    if (gameHistory.includes(7)) {
+        playedGameDetector = <div className='played-game'>You&apos;ve Played This Game</div>
     }
 
     // ONCLICK 'PLAY NOW'
@@ -55,13 +64,13 @@ const Cyberpunk = () => {
         console.log('fungsi addGameIdToHistory dijalankan')
 
         // add Game ID to gameHistory Store if id not detected
-        if(!gameHistory.includes(7)) {
+        if (!gameHistory.includes(7)) {
             dispatch(addGameHistory(7))
             console.log('id belum ada, dan sudah ditambahkan ke store')
         }
-        
+
         // direct to game
-            // theres no game yet
+        // theres no game yet
     }
 
     return (
@@ -74,17 +83,23 @@ const Cyberpunk = () => {
             <div className='container-fluid bg-white'>
                 <div className='row'>
                     <div data-aos='fade-right' className='col-6 px-5 py-5 game-text'>
-                        { playedGameDetector }
+                        {playedGameDetector}
                         <h1 className='text-game-title'>CYBERPUNK</h1>
                         <p>Cyberpunk 2077 is an open-world, action-adventure RPG set in the megalopolis of Night City, where you play as a cyberpunk mercenary wrapped up in a do-or-die fight for survival. Improved and featuring all-new free additional content, customize your character and playstyle as you take on jobs, build a reputation, and unlock upgrades.</p>
                         <div>
                             <Button onClick={addGameIdToHistory} color="warning" outline size="md">
-                                 PLAY NOW
+                                PLAY NOW
                             </Button>
                         </div>
                     </div>
                     <div data-aos='fade-left' className='col-6 px-5 py-5 img-game'>
-                        <Image className='img-content box-shadow' src={Cyber} alt='img' />
+                        <ReactPlayer className='react-player'
+                            width={860}
+                            height={535}
+                            ref={ref}
+                            url={source}
+                            playing={playing}
+                        />
                     </div>
                 </div>
                 <div className="row px-5 py-5 bg-light">

@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import Image from 'next/image';
+import React, { useRef, useEffect, useState } from 'react';
+import ReactPlayer from 'react-player';
 import Link from 'next/link';
 import Aos from 'aos';
 import { useRouter } from 'next/router';
@@ -14,11 +14,20 @@ import Navhome from '../../components/HomePage/Navhome';
 import Table from '../../components/leaderboard/Table';
 
 // import dispatch and action (Redux)
-import { useDispatch, useSelector } from 'react-redux'
-import { addGameHistory } from '../../features/gameHistory/gameHistorySlice' 
+import { useDispatch, useSelector } from 'react-redux';
+import { addGameHistory } from '../../features/gameHistory/gameHistorySlice';
+
+const sources = {
+    youtube: 'https://www.youtube.com/watch?v=Wj3dUvGLjNQ',
+}
 
 
 const Fallguys = () => {
+    const ref = useRef();
+    const [source, setSource] = useState(sources.youtube);
+    const [playing, setPlaying] = useState(false);
+
+    const play = () => setPlaying(true);
 
     // Put useDispatch and into variable
     const dispatch = useDispatch();
@@ -43,12 +52,12 @@ const Fallguys = () => {
             router.push('/login')
         }
     }, [router])
-    
+
     // DETECTOR ID GAME
     let playedGameDetector = ''
 
-    if(gameHistory.includes(3)){
-        playedGameDetector = <div className='played-game'>You&apos;ve Played This Game</div> 
+    if (gameHistory.includes(3)) {
+        playedGameDetector = <div className='played-game'>You&apos;ve Played This Game</div>
     }
 
     // ONCLICK 'PLAY NOW'
@@ -56,13 +65,13 @@ const Fallguys = () => {
         console.log('fungsi addGameIdToHistory dijalankan')
 
         // add Game ID to gameHistory Store if id not detected
-        if(!gameHistory.includes(3)) {
+        if (!gameHistory.includes(3)) {
             dispatch(addGameHistory(3))
             console.log('id belum ada, dan sudah ditambahkan ke store')
         }
-        
+
         // direct to game
-            // theres no game yet
+        // theres no game yet
     }
 
     return (
@@ -75,17 +84,23 @@ const Fallguys = () => {
             <div className='container-fluid bg-white'>
                 <div className='row'>
                     <div data-aos='fade-right' className='col-6 px-5 py-5 game-text'>
-                        { playedGameDetector }
+                        {playedGameDetector}
                         <h1 className='text-game-title'>FALL GUYS</h1>
                         <p>Welcome to Fall Guys: Free for All! You are invited to dive and dodge your way to victory in the pantheon of clumsy. Rookie or pro? Solo or partied up? Fall Guys delivers ever-evolving, high-concentrated hilarity and fun!</p>
                         <div>
                             <Button onClick={addGameIdToHistory} color="warning" outline size="md">
-                                 PLAY NOW
+                                PLAY NOW
                             </Button>
                         </div>
                     </div>
                     <div data-aos='fade-left' className='col-6 px-5 py-5 img-game'>
-                        <Image className='img-content box-shadow' src={Fall} alt='img' />
+                        <ReactPlayer className='react-player'
+                            width={860}
+                            height={535}
+                            ref={ref}
+                            url={source}
+                            playing={playing}
+                        />
                     </div>
                 </div>
                 <div className="row px-5 py-5 bg-light">

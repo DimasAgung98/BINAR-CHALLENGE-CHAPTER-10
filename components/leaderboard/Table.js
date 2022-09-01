@@ -23,15 +23,15 @@ function Table() {
     }, [])
 
     const TableDatas = items?.data?.map((item, i) => (
-            <tr key= {item.id} className='text'>
-                <th>{i + 1}</th>
-                <th>{item.id}</th>
-                <th>{item.username}</th>
-                <th>{item.email}</th>
-                <th>{item.point}</th>
-                <th><Link href='/home/profile'><Button color='danger' outline>Profile</Button></Link></th>
-            </tr>
-        )
+        <tr key={item.id} className='text'>
+            <th>{i + 1}</th>
+            <th>{item.id}</th>
+            <th>{item.username}</th>
+            <th>{item.email}</th>
+            <th>{item.point}</th>
+            <th><Link href='/home/profile'><Button color='danger' outline>Profile</Button></Link></th>
+        </tr>
+    )
     )
 
     if (error || !isLoaded) {
@@ -64,7 +64,7 @@ function Table() {
             <>
                 <div className='container bg-light'>
                     <div className='row mx-3'>
-                        <div className='col-md'>
+                        <div className='col-md mb-5'>
                             <table className="table">
                                 <thead className="table-dark text-center">
                                     <tr>

@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react';
-import Image from 'next/image';
+import React, { useRef, useEffect, useState } from 'react';
+import ReactPlayer from 'react-player'
 import Link from 'next/link';
 import Aos from 'aos';
 import { useRouter } from 'next/router';
 import Swal from 'sweetalert2';
-import GTA5 from '../../public/gta.jpg';
 import { Button } from 'reactstrap';
 import Head from 'next/head';
 //IMPORT COMPONENTS PAGES
@@ -14,11 +13,21 @@ import Navhome from '../../components/HomePage/Navhome';
 import Table from '../../components/leaderboard/Table';
 
 // import dispatch and action (Redux)
-import { useDispatch, useSelector } from 'react-redux'
-import { addGameHistory } from '../../features/gameHistory/gameHistorySlice' 
+import { useDispatch, useSelector } from 'react-redux';
+import { addGameHistory } from '../../features/gameHistory/gameHistorySlice';
+
+const sources = {
+    youtube: 'https://www.youtube.com/watch?v=QkkoHAzjnUs',
+}
 
 
 const Gta = () => {
+    const ref = useRef();
+    const [source, setSource] = useState(sources.youtube);
+    const [playing, setPlaying] = useState(false);
+
+    const play = () => setPlaying(true);
+
     // Put useDispatch and into variable
     const dispatch = useDispatch();
     // Put gameHistory store's data into variable
@@ -46,8 +55,8 @@ const Gta = () => {
     // DETECTOR ID GAME
     let playedGameDetector = ''
 
-    if(gameHistory.includes(2)){
-        playedGameDetector = <div className='played-game'>You&apos;ve Played This Game</div> 
+    if (gameHistory.includes(2)) {
+        playedGameDetector = <div className='played-game'>You&apos;ve Played This Game</div>
     }
 
     // ONCLICK 'PLAY NOW'
@@ -55,11 +64,11 @@ const Gta = () => {
         console.log('fungsi addGameIdToHistory dijalankan')
 
         // put 1 (RPS Game Id) to gameHistory Store if id not detected
-        if(!gameHistory.includes(2)) {
+        if (!gameHistory.includes(2)) {
             dispatch(addGameHistory(2))
             console.log('id belum ada, dan sudah ditambahkan ke store')
         }
-        
+
         // direct to game
         // theres no game yet
     }
@@ -75,17 +84,23 @@ const Gta = () => {
             <div className='container-fluid bg-white'>
                 <div className='row'>
                     <div data-aos='fade-right' className='col-6 px-5 py-5 game-text'>
-                        { playedGameDetector }
+                        {playedGameDetector}
                         <h1 className='text-game-title'>GRAND THEFT AUTO V</h1>
                         <p>Grand Theft Auto V evolves nearly every mechanic that was in the previous Grand Theft Auto games. As far as driving goes, the vehicles have been greatly improved, with Rockstar running more complex physics on them, such as making some cars hold to the ground slightly better.</p>
                         <div>
                             <Button onClick={addGameIdToHistory} color="warning" outline size="md">
-                                 PLAY NOW
+                                PLAY NOW
                             </Button>
                         </div>
                     </div>
                     <div data-aos='fade-left' className='col-6 px-5 py-5 img-game'>
-                        <Image className='img-content box-shadow' src={GTA5} alt='img' />
+                        <ReactPlayer className='react-player'
+                            width={860}
+                            height={535}
+                            ref={ref}
+                            url={source}
+                            playing={playing}
+                        />
                     </div>
                 </div>
                 <div className="row px-5 py-5 bg-light">
