@@ -138,7 +138,7 @@ function Profile() {
                 confirmButtonColor: '#dc3545',
             })
         } else {
-            const result = axios.post('https://teamone-server.herokuapp.com/api/upload', form)
+            const result = axios.post(`https://teamone-server.herokuapp.com/api/upload/${authId}`, form)
             Swal.fire({
                 icon: 'success',
                 title: 'SUCCESS',
