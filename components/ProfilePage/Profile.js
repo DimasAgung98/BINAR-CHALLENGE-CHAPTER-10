@@ -67,10 +67,10 @@ function Profile() {
             setPreview(defaultprofile)
             return
         }
-        const objectUrl = URL.createObjectURL(photo)
-        setPreview(objectUrl)
+        // const objectUrl = URL.createObjectURL(photo)
+        // setPreview(objectUrl)
 
-        return () => URL.revokeObjectURL(objectUrl)
+        // return () => URL.revokeObjectURL(objectUrl)
     }, [photo])
 
     //HANDLE UPDATE TO BACKEND
