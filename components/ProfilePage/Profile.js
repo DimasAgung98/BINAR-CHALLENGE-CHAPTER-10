@@ -53,7 +53,7 @@ function Profile() {
                     setEmail(res.data.email);
                     setSocial(res.data.social);
                     setAboutMe(res.data.about_me);
-
+                    setPreview(res.data.image_url);
                 },
                 (error) => {
                     setIsLoaded(true);
