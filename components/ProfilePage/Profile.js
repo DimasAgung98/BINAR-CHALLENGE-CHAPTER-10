@@ -67,10 +67,10 @@ function Profile() {
             setPreview(defaultprofile)
             return
         }
-        // const objectUrl = URL.createObjectURL(photo)
-        // setPreview(objectUrl)
+        const objectUrl = URL.createObjectURL(photo)
+        setPreview(objectUrl)
 
-        // return () => URL.revokeObjectURL(objectUrl)
+        return () => URL.revokeObjectURL(objectUrl)
     }, [photo])
 
     //HANDLE UPDATE TO BACKEND
@@ -121,8 +121,8 @@ function Profile() {
         console.log(e.target.files[0]);
         let uploaded = e.target.files[0];
         setPhoto(e.target.files[0]);
-        // setImage(URL.createObjectURL(uploaded));
-        // setSaveImage(uploaded);
+        setImage(URL.createObjectURL(uploaded));
+        setSaveImage(uploaded);
     }
 
     //MENAMBAHKAN DATA KE FORM
