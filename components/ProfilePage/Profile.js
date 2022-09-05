@@ -121,8 +121,8 @@ function Profile() {
         console.log(e.target.files[0]);
         let uploaded = e.target.files[0];
         setPhoto(e.target.files[0]);
-        setImage(URL.createObjectURL(uploaded));
-        setSaveImage(uploaded);
+        // setImage(URL.createObjectURL(uploaded));
+        // setSaveImage(uploaded);
     }
 
     //MENAMBAHKAN DATA KE FORM
