@@ -31,35 +31,36 @@ function Listgame() {
                 </div>
                 <div data-aos='flip-down' className='row px-5 mb-4'>
                     <div className='col-lg-4 box'>
-                        <Image src={Gta} className="img-fluid" alt="game" />
+                        <Link href='/games/gta'><Image src={Gta} className="img-fluid" alt="game" /></Link>
                     </div>
                     <div className='col-lg-4'>
-                        <Image src={Fall} className="img-fluid" alt="game" />
+                        <Link href='/games/fallguys'><Image src={Fall} className="img-fluid" alt="game" /></Link>
                     </div>
                     <div className='col-lg-4'>
-                        <Image src={Dot} className="img-fluid" alt="game" />
-                    </div>
-                </div>
-                <div data-aos='flip-down' className='row px-5 mb-3'>
-                    <div className='col-lg-4'>
-                        <Image src={Watch} className="img-fluid" alt="game" />
-                    </div>
-                    <div className='col-lg-4'>
-                        <Image src={Val} className="img-fluid" alt="game" />
-                    </div>
-                    <div className='col-lg-4'>
-                        <Image src={Cyber} className="img-fluid" alt="game" />
+                        <Link href='/games/dota'><Image src={Dot} className="img-fluid" alt="game" /></Link>
+
                     </div>
                 </div>
                 <div data-aos='flip-down' className='row px-5 mb-3'>
                     <div className='col-lg-4'>
-                        <Image src={Cs} className="img-fluid" alt="game" />
+                        <Link href='/games/watchdogs'><Image src={Watch} className="img-fluid" alt="game" /></Link>
                     </div>
                     <div className='col-lg-4'>
-                        <Image src={Rps} className="img-fluid" alt="game" />
+                        <Link href='/games/valorant'><Image src={Val} className="img-fluid" alt="game" /></Link>
                     </div>
                     <div className='col-lg-4'>
-                        <Image src={apex} className="img-fluid" alt="game" />
+                        <Link href='/games/cyberpunk'><Image src={Cyber} className="img-fluid" alt="game" /></Link>
+                    </div>
+                </div>
+                <div data-aos='flip-down' className='row px-5 mb-3'>
+                    <div className='col-lg-4'>
+                        <Link href='/home'><Image src={Cs} className="img-fluid" alt="game" /></Link>
+                    </div>
+                    <div className='col-lg-4'>
+                        <Link href='/games/rps'><Image src={Rps} className="img-fluid" alt="game" /></Link>
+                    </div>
+                    <div className='col-lg-4'>
+                        <Link href='/home'><Image src={apex} className="img-fluid" alt="game" /></Link>
                     </div>
                 </div>
                 <div className='row'>
