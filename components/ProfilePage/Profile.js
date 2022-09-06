@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
 import axios from 'axios';
 import Image from 'next/image';
 import FormData from 'form-data';
@@ -154,7 +153,8 @@ function Profile() {
                 <div className='row bg-light '>
                     <div className='col-3 pt-5 px-5'>
                         <div className='card pp-section bg-light'>
-                            <Image className='profile-pict' src={preview} height={250} width={250} alt="profile" />
+                            {/* eslint-disable @next/next/no-img-element */}
+                            <img className='profile-pict' src={preview} height={250} width={250} alt="profile" />
                         </div>
                         <div className='row pt-3 justify-content-center'>
                             <Button onClick={openModalPicture} className='btn-change-profile' color='danger'>Change Profile Picture</Button>
