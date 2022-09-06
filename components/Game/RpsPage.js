@@ -1,13 +1,41 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+
 
 import batu from '../../public/batu.png'
 import gunting from '../../public/gunting.png'
 import kertas from '../../public/kertas.png'
 import refresh from '../../public/refresh.png'
 
+// import dispatch and action (Redux)
+import { useDispatch, useSelector } from 'react-redux'
+import { removeAuth } from '../../features/authentication/authenticationSlice'
+import { removeGameHistory } from '../../features/gameHistory/gameHistorySlice'
+
 function RpsPage() {
+    const [username, setUsername] = useState('');
+    const [isLoaded, setIsLoaded] = useState(false);
+    // Put useDispatch and into variable
+    const dispatch = useDispatch();
+    // Put authentication store's data into variable
+    const authId = useSelector(state => state.authentication.id)
+    useEffect(() => {
+
+        fetch(`https://teamone-server.herokuapp.com/api/users/${authId}`)
+            .then(res => res.json())
+            .then(
+                (res) => {
+                    setIsLoaded(true);
+                    setUsername(res.data.username);
+
+                },
+                (error) => {
+                    setIsLoaded(true);
+                    setError(error);
+                }
+            )
+    }, [authId])
     //Array Game Condition
     const CONDITION_TABLE = [
         ["D", "P", "C"],
@@ -106,7 +134,7 @@ function RpsPage() {
                     <div className="row justify-content-center mt-3">
                         {/* <!-- player Section --> */}
                         <div className="col-lg-3">
-                            <h1 id="username" className="player-title">PLAYER 1</h1>
+                            <h1 id="username" className="player-title text-uppercase">{username}</h1>
                             <div className="row justify-content-center">
                                 <figure className="col-lg-7 pt-4 figure player" id="rock">
                                     <Image src={batu} width={128} height={128} alt="player-rock" onClick={() => getChoice(0)} />
