@@ -81,7 +81,7 @@ function Rps() {
             <Navhome />
             <Sidebar />
             <div className='container-fluid bg-white'>
-                <div className='row'>
+                <div className='row justify-content-center'>
                     <div data-aos='fade-right' className='col-6 px-5 py-5 game-text'>
                         {playedGameDetector}
                         <h1 className='text-game-title'>ROCK PAPER SCISSORS</h1>
@@ -94,8 +94,6 @@ function Rps() {
                     </div>
                     <div data-aos='fade-left' className='col-6 px-5 py-5 img-game'>
                         <ReactPlayer className='react-player'
-                            width={860}
-                            height={535}
                             ref={ref}
                             url={source}
                             playing={playing}

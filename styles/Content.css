@@ -12,6 +12,8 @@
 }
 
 .react-player {
+    width: auto;
+    height: 60vh;
     border-radius: 50px;
     overflow: hidden;
     -webkit-border-radius: 20px;
