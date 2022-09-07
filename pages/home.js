@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 import Head from 'next/head';
 //IMPORT COMPONENTS
 import Navhome from '../components/HomePage/Navhome';
-import ListGame from '../components/listGame/Listgame';
+import HomeListGame from '../components/HomePage/HomeListGame';
 import Sidebar from '../components/HomePage/Sidebar';
 import Footer from "../components/global/Footer";
 // Import UseSelector from Redux to detect Store's data
@@ -39,7 +39,7 @@ function HomePage() {
             </Head>
             <Navhome />
             <Sidebar />
-            <ListGame />
+            <HomeListGame />
             <Footer />
         </>
     )

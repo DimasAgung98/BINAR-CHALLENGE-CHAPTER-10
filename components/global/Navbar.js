@@ -15,10 +15,10 @@ function Navbar() {
           <div className='col-3'>
             {/* logo navbar */}
             <Link href='/' className='navbar-brand'><a className='decoration'>
-              <div className='logo mb-2'>
+              <div className='logo'>
                 <Image src={NavbarLogo} alt="logo" />
               </div>
-              <div className='navbar_text'>
+              <div className='navbar_text mb-4'>
                 <h4>TEAM<span> ONE</span></h4>
               </div>
             </a></Link>

@@ -17,3 +17,7 @@
 .list-menu a:hover {
     color: red
 }
+
+.sidebar-padding {
+    padding-top: 80px;
+}

@@ -8,7 +8,7 @@ function Leaderboard() {
     }, [])
     return (
         <>
-            <div className='container-fluid bg-light leaderboard-page'>
+            <div className='container-fluid bg-light leaderboard-page ptb'>
                 <div className='row pt-5 pb-3'>
                     <div className='col-12 text-center'>
                         <h1 className='fw-bold'>TOP <p className='text-players'>PLAYERS</p></h1>

@@ -1,7 +1,8 @@
 .profile-pict {
-    width: 250px;
-    height: auto;
-    clip-path: circle(6rem);
+    /* width: 300px;
+    height: 300px; */
+    /* clip-path: circle(8rem); */
+    border-radius: 50%;
 }
 
 .btn-change-profile {

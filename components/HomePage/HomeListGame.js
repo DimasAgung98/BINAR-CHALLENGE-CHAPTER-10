@@ -22,7 +22,7 @@ function Listgame() {
     }, [])
     return (
         <>
-            <div className='container-fluid bg-white px-5 padding-list'>
+            <div className='container-fluid bg-white px-5 pt-5'>
                 <div className='row px-5'>
                     <div data-aos='fade-right' className='col our-text'>
                         <h1>OUR GAMES</h1>

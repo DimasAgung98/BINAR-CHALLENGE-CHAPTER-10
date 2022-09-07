@@ -78,7 +78,7 @@ function Navhome() {
                                 <div className='logo mb-2'>
                                     <Image src={NavbarLogo} alt="logo" />
                                 </div>
-                                <div className='navbar_text'>
+                                <div className='navbar_text mb-4'>
                                     <h4>TEAM<span> ONE</span></h4>
                                 </div>
                             </a></Link>

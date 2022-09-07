@@ -20,7 +20,7 @@ function Register() {
                 <title>REGISTER | TEAM ONE</title>
             </Head>
             <Navbar />
-            <div className='container-fluid bg'>
+            <div className='container-fluid bg pt-4'>
                 <div className='row'>
                     <div className='col'>
                         <div className='form-container'>

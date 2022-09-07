@@ -149,10 +149,10 @@ function Profile() {
     }
     return (
         <>
-            <div className='container-fluid bg-light min-vh-100'>
+            <div className='container-fluid bg-light min-vh-100 ptb'>
                 <div className='row bg-light '>
                     <div className='col-3 pt-5 px-5'>
-                        <div className='card pp-section bg-light'>
+                        <div className='card pp-section bg-light mb-3'>
                             {/* eslint-disable @next/next/no-img-element */}
                             <img className='profile-pict' src={preview} height={250} width={250} alt="profile" />
                         </div>

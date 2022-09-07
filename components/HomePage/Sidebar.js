@@ -4,7 +4,7 @@ import Link from 'next/link';
 function Sidebar() {
     return (
         <>
-            <div className='container-fluid bg-light'>
+            <div className='container-fluid bg-light sidebar-padding'>
                 <div className='row'>
                     <div className='col-12 list-menu'>
                         <Link href='/home'><a><li>HOME</li></a></Link>
